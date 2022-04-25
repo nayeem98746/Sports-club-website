@@ -75,6 +75,10 @@ function App() {
               <Route path={`/dashboard/loadProdect`} element={<AddReview />} />
               <Route path={`/dashboard/addEventRegister`} element={<AdminRoute><AddEventRegister /></AdminRoute>} />
 
+              <Route path={`/dashboard/loadProdect`} element={<AddReview />} />
+              <Route path={`/dashboard/addEventRegister`} element={<AddEventRegister />} />
+
+
             </Route>
             <Route path="/contest/quiz" element={<QuizContest />} />
 

@@ -12,14 +12,10 @@ import StarIcon from '@mui/icons-material/Star';
 import IosShareIcon from '@mui/icons-material/IosShare';
 import { Box } from '@mui/system';
 import PlayerReviwe from '../../PlayerReviwe/PlayerReviwe';
+
 import location from '../../../Images/Connting/819814.png';
 import email from '../../../Images/Connting/email.png';
 import phone from '../../../Images/Connting/phone-call.png';
-
-// import location from '../../../Images/Connting/819814.png';
-// import email from '../../../Images/Connting/email.png';
-// import phone from '../../../Images/Connting/phone-call.png';
-
 
 const labels = {
   0.5: 'Useless',
@@ -135,11 +131,6 @@ const BaseketBallDetails = () => {
 
 
 
-
-
-
-
-
   return (
     <>
       <Navigation />
@@ -183,52 +174,51 @@ const BaseketBallDetails = () => {
                           </div>
 
                         </div>
-
-
-                        <form style={{ marginTop: "100px" }} onSubmit={hendalPalyer}>
-
-                          <br />
-                          <input type="text" name='name'
-                            onBlur={hendalOnBlure} id="" placeholder='Your Name'
-                            required
-                            style={{ width: "200px", padding: "10px", borderRadius: "05px", margin: "20px" }}
-                          />
-
-                          <input type="text" name='email'
-                            onBlur={hendalOnBlure} id="" placeholder='Your Email'
-                            required
-                            style={{ width: "200px", padding: "10px", borderRadius: "05px", margin: "20px" }}
-                          />
+                      </div>
 
 
 
-                          <input name='PlayerName'
-                            onBlur={hendalOnBlure} defaultValue={singleBaseball?.name} type="text" id="" placeholder='Player Name'
-                            required
+                      <button className='details-player-video'><FontAwesomeIcon style={{ marginRight: '5px' }} icon={faVideo} />  <div className="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                        <div className="modal-dialog modal-dialog-centered">
+                          <div className="modal-content">
+                            <div className="modal-header">
+                              <h5 className="modal-title" style={{ color: 'ButtonText' }} id="exampleModalToggleLabel">Player details video</h5>
+                              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div className="modal-body">
+                              {/* <video src={video}></video> */}
+                              <iframe width="455" height="250" src="https://www.youtube.com/embed/387782CRNQM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
 
-                            style={{ width: "200px", padding: "10px", borderRadius: "05px", margin: "20px" }}
-                          />
+                          </div>
+                        </div>
+                      </div>
 
-                          <textarea className='textarea' onBlur={hendalOnBlure} type="text" name='deatls' placeholder='Type Your Feedback'
-                            style={{ width: "400px", padding: "10px", borderRadius: "05px", margin: "20px" }} /> <br />
-
-
-                          <button class="modal-btn" type="button">Send</button>
-
-                        </form >
+                        <a className='player-details-video' data-bs-toggle="modal" href="#exampleModalToggle" role="button">Play video</a></button>
 
 
-                      </div >
+                      <input name='PlayerName'
+                        onBlur={hendalOnBlure} defaultValue={singleBaseball?.name} type="text" id="" placeholder='Player Name'
+                        required
+
+                        style={{ width: "200px", padding: "10px", borderRadius: "05px", margin: "20px" }}
+                      />
+
+                      <textarea className='textarea' onBlur={hendalOnBlure} type="text" name='deatls' placeholder='Type Your Feedback'
+                        style={{ width: "400px", padding: "10px", borderRadius: "05px", margin: "20px" }} /> <br />
+
+
+                      <button class="modal-btn" type="button">Send</button>
                     </div >
-                    <div class="modal-footer">
-                      <button type="button" class="modal-btn" data-bs-dismiss="modal">Close</button>
-
-                    </div>
                   </div >
+                  <div class="modal-footer">
+                    <button type="button" class="modal-btn" data-bs-dismiss="modal">Close</button>
+
+                  </div>
                 </div >
               </div >
-              <button className='details-player-video'><FontAwesomeIcon style={{ marginRight: '5px' }} icon={faVideo} />Play video</button>
             </div >
+            <button className='details-player-video'><FontAwesomeIcon style={{ marginRight: '5px' }} icon={faVideo} />Play video</button>
             <div>
               {/* <div className='details-single-img'></div> */}
               <img className='details-player-img' src={singleBaseball?.img} alt="" />
@@ -237,133 +227,133 @@ const BaseketBallDetails = () => {
         </div >
       </>
 
+      <>
+        <div className='biography container'>
+          <div className='row'>
+            <div className='col-md-6'>
+              <div className='style-playerDetails'>
+                <h1 style={{ marginBottom: "50px", fontSize: "40px", fontWeight: "700" }} className='playerHeading'>Biography</h1>
+                <h2 style={{ marginBottom: "40px", fontSize: "30px", fontWeight: "600" }}>
+                  {singleBaseball?.name}
+                </h2>
 
-      <div className='biography container'>
-        <div className='row'>
-          <div className='col-md-6'>
-            <div className='style-playerDetails'>
-              <h1 style={{ marginBottom: "50px", fontSize: "40px", fontWeight: "700" }} className='playerHeading'>Biography</h1>
-              <h2 style={{ marginBottom: "40px", fontSize: "30px", fontWeight: "600" }}>
-                {singleBaseball?.name}
-              </h2>
+                <p style={{ marginBottom: "10px", fontSize: "20px", fontWeight: "400", width: "500px" }}>{singleBaseball?.describe}</p>
+                <p style={{ marginBottom: "10px", fontSize: "20px", fontWeight: "400", width: "500px" }}>He has spent his entire professional career with Barcelona, where he has won a club-record 34 trophies, including ten La Liga titles, four UEFA Champions League titles and six Copas del Rey.</p>
+                <p style={{ marginBottom: "40px", fontSize: "20px", fontWeight: "400", width: "500px" }}>A prolific goalscorer and a creative playmaker, Messi holds the records for most goals in La Liga (419), a La Liga and European league season (50), most hat-tricks in the UEFA Champions League (8), and most assists in La Liga (169) and the Copa América (12). He has scored 698 senior career goals for club and country.</p>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td style={{ fontWeight: "600", fontSize: "16px" }}><strong>Height</strong></td>
+                        <td style={{ color: "#dc3545", fontWeight: "700", fontSize: "18px" }}>{singleBaseball?.Height}</td>
+                      </tr >
+                      <tr>
+                        <td style={{ fontWeight: "600", fontSize: "16px" }}><strong>Weight</strong></td>
+                        <td style={{ color: "#dc3545", fontWeight: "700", fontSize: "18px" }}>{singleBaseball?.Weight}</td>
+                      </tr>
+                      <tr>
+                        <td style={{ fontWeight: "600", fontSize: "16px" }}><strong>Position</strong></td>
+                        <td style={{ color: "#dc3545", fontWeight: "700", fontSize: "18px" }}>{singleBaseball?.Position}</td>
+                      </tr>
+                      <tr>
+                        <td style={{ fontWeight: "600", fontSize: "16px" }}><strong>Nationality</strong></td>
+                        <td style={{ color: "#dc3545", fontWeight: "700", fontSize: "18px" }}>{singleBaseball?.Nationality}</td>
+                      </tr>
+                    </tbody >
+                  </table >
+                </div >
 
-              <p style={{ marginBottom: "10px", fontSize: "20px", fontWeight: "400", width: "500px" }}>{singleBaseball?.describe}</p>
-              <p style={{ marginBottom: "10px", fontSize: "20px", fontWeight: "400", width: "500px" }}>He has spent his entire professional career with Barcelona, where he has won a club-record 34 trophies, including ten La Liga titles, four UEFA Champions League titles and six Copas del Rey.</p>
-              <p style={{ marginBottom: "40px", fontSize: "20px", fontWeight: "400", width: "500px" }}>A prolific goalscorer and a creative playmaker, Messi holds the records for most goals in La Liga (419), a La Liga and European league season (50), most hat-tricks in the UEFA Champions League (8), and most assists in La Liga (169) and the Copa América (12). He has scored 698 senior career goals for club and country.</p>
-              <div>
-                <table>
-                  <tbody>
-                    <tr>
-                      <td style={{ fontWeight: "600", fontSize: "16px" }}><strong>Height</strong></td>
-                      <td style={{ color: "#dc3545", fontWeight: "700", fontSize: "18px" }}>{singleBaseball?.Height}</td>
-                    </tr >
-                    <tr>
-                      <td style={{ fontWeight: "600", fontSize: "16px" }}><strong>Weight</strong></td>
-                      <td style={{ color: "#dc3545", fontWeight: "700", fontSize: "18px" }}>{singleBaseball?.Weight}</td>
-                    </tr>
-                    <tr>
-                      <td style={{ fontWeight: "600", fontSize: "16px" }}><strong>Position</strong></td>
-                      <td style={{ color: "#dc3545", fontWeight: "700", fontSize: "18px" }}>{singleBaseball?.Position}</td>
-                    </tr>
-                    <tr>
-                      <td style={{ fontWeight: "600", fontSize: "16px" }}><strong>Nationality</strong></td>
-                      <td style={{ color: "#dc3545", fontWeight: "700", fontSize: "18px" }}>{singleBaseball?.Nationality}</td>
-                    </tr>
-                  </tbody >
-                </table >
               </div >
-
             </div >
+            <div className='col-md-6 banner'>
+              <img src={biograpy} alt="" />
+            </div>
           </div >
-          <div className='col-md-6 banner'>
-            <img src={biograpy} alt="" />
-          </div>
         </div >
-      </div >
 
-      <div className="playerman container">
-        <h1 style={{ marginTop: "100px", marginBottom: "50px" }}>Player Say!</h1>
-        <div className="player">
-          <img src={singleBaseball?.img} alt="" />
-          <h2>{singleBaseball?.name}</h2>
-          <h4>{singleBaseball?.Position}</h4>
-          <p>{singleBaseball?.describe}</p>
+        <div className="playerman container">
+          <h1 style={{ marginTop: "100px", marginBottom: "50px" }}>Player Say!</h1>
+          <div className="player">
+            <img src={singleBaseball?.img} alt="" />
+            <h2>{singleBaseball?.name}</h2>
+            <h4>{singleBaseball?.Position}</h4>
+            <p>{singleBaseball?.describe}</p>
+          </div>
+
         </div>
 
-      </div>
+        <PlayerReviwe />
 
-      <PlayerReviwe />
+        <Container className="Player-All">
 
-      <Container className="Player-All">
+          <div className="From-Main">
 
-        <div className="From-Main">
+            <Button style={{ background: "#dc3545", border: "none", padding: "10px 10px" }}>#Tell Us About Your Player Feedback </Button>
 
-          <Button style={{ background: "#dc3545", border: "none", padding: "10px 10px" }}>#Tell Us About Your Player Feedback </Button>
-
-          <h2 style={{ marginBottom: "20px", marginTop: "50px" }}>About Your Feedback</h2>
-          <div className="border">
-
-          </div>
-
-          <form className='From' >
-
-
-            <div className="Rating">
-              <Typography sx={{ fontWeight: '700' }} >Your Rating</Typography>
-              <Rating
-                name="feedback"
-                onBlur={hendalOnBlure}
-                value={value}
-                precision={0.5}
-
-                onChange={(event, newValue) => {
-                  setValue(newValue);
-                }}
-                onChangeActive={(event, newHover) => {
-                  setHover(newHover);
-                }}
-                emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
-              />
-              {value !== null && (
-                <Box sx={{ ml: 2 }}>{labels[hover !== -1 ? hover : value]}</Box>
-              )}
+            <h2 style={{ marginBottom: "20px", marginTop: "50px" }}>About Your Feedback</h2>
+            <div className="border">
 
             </div>
 
-            <input className='textarea' onBlur={hendalOnBlure} type="text" name='deatls' placeholder='Type Your Feedback' />
-            <br />
-            <input type="text" name='name'
-              onBlur={hendalOnBlure} id="" placeholder='Your Name' />
-
-            <input type="text" name='email'
-              onBlur={hendalOnBlure} id="" placeholder='Your Email' />
+            <form className='From' >
 
 
+              <div className="Rating">
+                <Typography sx={{ fontWeight: '700' }} >Your Rating</Typography>
+                <Rating
+                  name="feedback"
+                  onBlur={hendalOnBlure}
+                  value={value}
+                  precision={0.5}
 
-            <input name='PlayerName'
-              onBlur={hendalOnBlure} defaultValue={singleBaseball?.name} type="text" id="" placeholder='Player Name' />
+                  onChange={(event, newValue) => {
+                    setValue(newValue);
+                  }}
+                  onChangeActive={(event, newHover) => {
+                    setHover(newHover);
+                  }}
+                  emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                />
+                {value !== null && (
+                  <Box sx={{ ml: 2 }}>{labels[hover !== -1 ? hover : value]}</Box>
+                )}
 
-            <input type="url" name="url" onBlur={hendalOnBlure} id="" placeholder='Type a Photo url' />
+              </div>
 
-            <br /><br />
-            <Button onClick={handelonSubmit}
+              <input className='textarea' onBlur={hendalOnBlure} type="text" name='deatls' placeholder='Type Your Feedback' />
+              <br />
+              <input type="text" name='name'
+                onBlur={hendalOnBlure} id="" placeholder='Your Name' />
 
-              style={{ background: "#dc3545", border: "none", padding: "10px 10px" }} >Submit <IosShareIcon /></Button>
-
-
-          </form>
-
-
-        </div>
+              <input type="text" name='email'
+                onBlur={hendalOnBlure} id="" placeholder='Your Email' />
 
 
 
+              <input name='PlayerName'
+                onBlur={hendalOnBlure} defaultValue={singleBaseball?.name} type="text" id="" placeholder='Player Name' />
 
-      </Container>
+              <input type="url" name="url" onBlur={hendalOnBlure} id="" placeholder='Type a Photo url' />
+
+              <br /><br />
+              <Button onClick={handelonSubmit}
+
+                style={{ background: "#dc3545", border: "none", padding: "10px 10px" }} >Submit <IosShareIcon /></Button>
 
 
+            </form>
+
+
+          </div>
+
+
+
+
+        </Container>
+
+
+      </>
     </>
-
   );
 };
 
