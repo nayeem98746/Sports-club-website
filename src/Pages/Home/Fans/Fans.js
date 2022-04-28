@@ -18,8 +18,8 @@ const Fans = () => {
                     <p className='fans-p'>Cleveland became a title town for the first time since Dec. 27, 1964, when the Browns won the ESL championship. There had been so many close calls in between.</p>
                 </div>
                 <div className="clint">
-                <img src={image2} alt="" />
-                     <h2>Stiven Metzler</h2>
+                    <img src={image2} alt="" />
+                    <h2>Stiven Metzler</h2>
                     <h3>Founder, AllSportsShop</h3>
                     <p className='fans-p'>Cleveland became a title town for the first time since Dec. 27, 1964, when the Browns won the ESL championship. There had been so many close calls in between.</p>
                 </div>

@@ -75,7 +75,7 @@ export default class TableTennisPlayers extends Component {
 
     return (
       <div className="container AllPlayer">
-        <h1 style={{marginBottom: "50px", marginTop: "100px"}}>OUR TEAM</h1>
+        <h1 style={{ marginBottom: "50px", marginTop: "100px" }}>OUR TEAM</h1>
         <div className="my-5">
           <FontAwesomeIcon
             className="me-2"
@@ -83,12 +83,12 @@ export default class TableTennisPlayers extends Component {
             icon={faArrowLeft}
           />
           <FontAwesomeIcon
-          className="me-2"
-          onClick={this.next} icon={faArrowRight} />
+            className="me-2"
+            onClick={this.next} icon={faArrowRight} />
         </div>
 
         <Slider ref={(c) => (this.slider = c)} {...settings}>
-          
+
           {this.state.players.map(players => <TableTennisPlayer
 
             key={players._id}

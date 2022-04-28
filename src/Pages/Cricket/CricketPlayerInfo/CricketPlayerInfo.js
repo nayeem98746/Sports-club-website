@@ -36,7 +36,7 @@ const CricketPlayerInfo = () => {
 
   const [playerDetails, setPlayerDetails] = useState([]);
   const [detailsItam, setDetailsItam] = useState([]);
-  
+
 
   useEffect(() => {
     fetch("https://enigmatic-garden-34025.herokuapp.com/cricketplayers")
@@ -49,7 +49,7 @@ const CricketPlayerInfo = () => {
   useEffect(() => {
     if (playerDetails?.length > 0) {
       const matchItam = playerDetails.find(
-        (playerDetails) => playerDetails.id == id
+        (playerDetails) => playerDetails.id === id
       );
       setDetailsItam(matchItam);
     }
@@ -85,7 +85,7 @@ const CricketPlayerInfo = () => {
     data.preventDefault();
     orderinfo.PlayerName = detailsItam?.name
     const newDispalyReviwe = {
-      ...orderinfo,PlayerName:detailsItam?.name
+      ...orderinfo, PlayerName: detailsItam?.name
     };
     newDispalyReviwe.PlayerName = detailsItam?.name
     if (
@@ -97,7 +97,7 @@ const CricketPlayerInfo = () => {
       alert(`All fields are required`);
       return;
     }
-    
+
     // fetch("https://enigmatic-garden-34025.herokuapp.com/review", {
     fetch("http://localhost:7000/review", {
       method: "POST",
