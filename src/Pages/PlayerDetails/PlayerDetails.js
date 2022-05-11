@@ -1,7 +1,3 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import biograpy from "../../Images/news_296_all-sports-banner_nq.png";
-import Navigation from "../Shared/Navigation/Navigation";
 import { faVideo } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Container, Modal } from "react-bootstrap";
@@ -9,12 +5,16 @@ import { Rating, Typography } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import IosShareIcon from "@mui/icons-material/IosShare";
 import { Box } from "@mui/system";
-import "./PlayerDetails.css";
-import PlayerReviwe from "../PlayerReviwe/PlayerReviwe";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
 import location from "../../Images/Connting/819814.png";
 import email from "../../Images/Connting/email.png";
 import phone from "../../Images/Connting/phone-call.png";
-import { useDispatch } from "react-redux";
+import biograpy from "../../Images/news_296_all-sports-banner_nq.png";
+import PlayerReviwe from "../PlayerReviwe/PlayerReviwe";
+import Navigation from "../Shared/Navigation/Navigation";
+import "./PlayerDetails.css";
 import { addReview, callReviews } from "../../features/PlayerReviewSlice/PlayerReviewSlice";
 import { Link } from "react-router-dom";
 
@@ -34,6 +34,7 @@ const labels = {
 const PlayerDetails = () => {
 
   const { id } = useParams();
+  const [openModel, setOpenModel] = useState(false);
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -116,7 +117,7 @@ const PlayerDetails = () => {
       return;
     }
     
-    // fetch("https://enigmatic-garden-34025.herokuapp.com/review", {
+    // fetch("https://blooming-thicket-66783.herokuapp.com/review", {
     fetch("https://blooming-thicket-66783.herokuapp.com/review", {
       method: "POST",
       headers: {
@@ -153,7 +154,7 @@ const PlayerDetails = () => {
               
               
               
-              <Button variant="primary" onClick={handleShow}>
+              <Button style={{marginRight:'10px'}} variant="primary" onClick={handleShow}>
                 Conecting
       </Button>
 
@@ -281,84 +282,45 @@ const PlayerDetails = () => {
           
         </Modal.Footer>
       </Modal> 
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            
 
-              
+       
 
-              <button className="details-player-video">
+      <button onClick={ () => setOpenModel(true)} className="details-player-video">
                 <FontAwesomeIcon
                   style={{ marginRight: "5px" }}
                   icon={faVideo}
                 />{" "}
-                <div
-                  className="modal fade"
-                  id="exampleModalToggle"
-                  aria-hidden="true"
-                  aria-labelledby="exampleModalToggleLabel"
-                  tabindex="-1"
-                >
-                  <div className="modal-dialog modal-dialog-centered">
-                    <div className="modal-content">
-                      <div className="modal-header">
-                        <h5
-                          className="modal-title"
-                          style={{ color: "ButtonText" }}
-                          id="exampleModalToggleLabel"
-                        >
-                          Player details video
-                        </h5>
-                        <button
-                          type="button"
-                          className="btn-close"
-                          data-bs-dismiss="modal"
-                          aria-label="Close"
-                        ></button>
-                      </div>
-                      <div className="modal-body">
-                        {/* <video src={video}></video> */}
-                        <iframe
-                          width="455"
-                          height="250"
-                          src="https://www.youtube.com/embed/387782CRNQM"
-                          title="YouTube video player"
-                          frameborder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowfullscreen
-                        ></iframe>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <a
-                  className="player-details-video"
-                  data-bs-toggle="modal"
-                  href="#exampleModalToggle"
-                  role="button"
-                >
+               
                   Play video
-                </a>
+                
               </button>
+
+
+
             </div>
-            <div>
-              {/* <div className='details-single-img'></div> */}
-              <img
-                className="details-player-img"
-                src={detailsItam?.img}
-                alt=""
-              />
-            </div>
+            
+            {
+              openModel? <div> 
+
+<iframe style={{marginTop:'200px'}} width="560" height="315" src="https://www.youtube.com/embed/H0XhzyXHHPo?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <Button style={{ marginBottom:'100px'}} onClick={ () => setOpenModel(false)} >Close </Button>
+
+                </div>
+                :
+
+<div >
+{/* <div className='details-single-img'></div> */}
+<img 
+  className="details-player-img"
+  src={detailsItam?.img}
+  alt=""
+/>
+</div>
+
+
+
+            }
+
           </Container>
         </div>
       </>

@@ -1,7 +1,3 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import biograpy from "../../../Images/news_296_all-sports-banner_nq.png";
-import Navigation from "../../../Pages/Shared/Navigation/Navigation";
 import { faVideo } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Container, Modal } from "react-bootstrap";
@@ -9,13 +5,17 @@ import { Rating, Typography } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import IosShareIcon from "@mui/icons-material/IosShare";
 import { Box } from "@mui/system";
-import PlayerReviwe from "../../PlayerReviwe/PlayerReviwe";
-
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
+import { addReview } from "../../../features/PlayerReviewSlice/PlayerReviewSlice";
 import location from "../../../Images/Connting/819814.png";
 import email from "../../../Images/Connting/email.png";
 import phone from "../../../Images/Connting/phone-call.png";
-import { addReview } from "../../../features/PlayerReviewSlice/PlayerReviewSlice";
-import { useDispatch } from "react-redux";
+import biograpy from "../../../Images/news_296_all-sports-banner_nq.png";
+import Navigation from "../../../Pages/Shared/Navigation/Navigation";
+import PlayerReviwe from "../../PlayerReviwe/PlayerReviwe";
+
 
 const labels = {
   0.5: "Useless",
@@ -32,6 +32,7 @@ const labels = {
 
 const BaseBallDetails = () => {
   let { id } = useParams();
+  const [openModel, setOpenModel] = useState(false);
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -42,7 +43,7 @@ const BaseBallDetails = () => {
   /* const [quantity, setQuantity] = useState(1); */
 
   useEffect(() => {
-    fetch("https://enigmatic-garden-34025.herokuapp.com/baseBall")
+    fetch("https://blooming-thicket-66783.herokuapp.com/baseBall")
       .then((res) => res.json())
       .then((data) => setTableTaPlayers(data));
   }, []);
@@ -89,7 +90,7 @@ const BaseBallDetails = () => {
       !newDispalyReviwe.feedback ||
       !newDispalyReviwe.PlayerName
     ) {
-      alert("All fields are required");
+      alert(`All fields are required`);
       return;
     }
 
@@ -132,7 +133,7 @@ const BaseBallDetails = () => {
 
               <p className="details-player-des">{sinleTaTanis?.describe}</p>
 
-              <Button variant="primary" onClick={handleShow}>
+              <Button style={{marginRight:'10px'}} variant="primary" onClick={handleShow}>
                 Conecting
       </Button>
 
@@ -268,75 +269,46 @@ const BaseBallDetails = () => {
               
               
               
-              
-              
-              
-              
-            
-
-
-              <button className="details-player-video">
+      <button onClick={ () => setOpenModel(true)} className="details-player-video">
                 <FontAwesomeIcon
                   style={{ marginRight: "5px" }}
                   icon={faVideo}
                 />{" "}
-                <div
-                  className="modal fade"
-                  id="exampleModalToggle"
-                  aria-hidden="true"
-                  aria-labelledby="exampleModalToggleLabel"
-                  tabindex="-1"
-                >
-                  <div className="modal-dialog modal-dialog-centered">
-                    <div className="modal-content">
-                      <div className="modal-header">
-                        <h5
-                          className="modal-title"
-                          style={{ color: "ButtonText" }}
-                          id="exampleModalToggleLabel"
-                        >
-                          Player details video
-                        </h5>
-                        <button
-                          type="button"
-                          className="btn-close"
-                          data-bs-dismiss="modal"
-                          aria-label="Close"
-                        ></button>
-                      </div>
-                      <div className="modal-body">
-                        {/* <video src={video}></video> */}
-                        <iframe
-                          width="455"
-                          height="250"
-                          src="https://www.youtube.com/embed/387782CRNQM"
-                          title="YouTube video player"
-                          frameborder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowfullscreen
-                        ></iframe>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <a
-                  className="player-details-video"
-                  data-bs-toggle="modal"
-                  href="#exampleModalToggle"
-                  role="button"
-                >
+               
                   Play video
-                </a>
+                
               </button>
+
+
+
             </div>
-            <div>
-              {/* <div className='details-single-img'></div> */}
-              <img
-                className="details-player-img"
-                src={sinleTaTanis?.img}
-                alt=""
-              />
-            </div>
+            
+            {
+              openModel? <div> 
+
+
+<iframe style={{marginTop:'200px'}} width="560" height="315" src="https://www.youtube.com/embed/i-0kJOPzIfE?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <Button style={{ marginBottom:'100px'}} onClick={ () => setOpenModel(false)} >Close </Button>
+
+                </div>
+                :
+
+<div >
+{/* <div className='details-single-img'></div> */}
+<img 
+  className="details-player-img"
+  src={sinleTaTanis?.img}
+  alt=""
+/>
+</div>
+
+
+
+            }
+              
+              
+              
+           
           </Container>
         </div>
       </>
@@ -399,7 +371,7 @@ const BaseBallDetails = () => {
                 A prolific goalscorer and a creative playmaker, Messi holds the
                 records for most goals in La Liga (419), a La Liga and European
                 league season (50), most hat-tricks in the UEFA Champions League
-                (😎, and most assists in La Liga (169) and the Copa América
+                (8), and most assists in La Liga (169) and the Copa América
                 (12). He has scored 698 senior career goals for club and
                 country.
               </p>

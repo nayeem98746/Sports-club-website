@@ -1,7 +1,3 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import biograpy from "../../../Images/news_296_all-sports-banner_nq.png";
-import Navigation from "../../../Pages/Shared/Navigation/Navigation";
 import { faVideo } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Container, Modal } from "react-bootstrap";
@@ -9,13 +5,17 @@ import { Rating, Typography } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import IosShareIcon from "@mui/icons-material/IosShare";
 import { Box } from "@mui/system";
-import PlayerReviwe from "../../PlayerReviwe/PlayerReviwe";
-
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
+import { addReview } from "../../../features/PlayerReviewSlice/PlayerReviewSlice";
 import location from "../../../Images/Connting/819814.png";
 import email from "../../../Images/Connting/email.png";
 import phone from "../../../Images/Connting/phone-call.png";
-import { addReview } from "../../../features/PlayerReviewSlice/PlayerReviewSlice";
-import { useDispatch } from "react-redux";
+import biograpy from "../../../Images/news_296_all-sports-banner_nq.png";
+import Navigation from "../../../Pages/Shared/Navigation/Navigation";
+import PlayerReviwe from "../../PlayerReviwe/PlayerReviwe";
+
 
 const labels = {
   0.5: "Useless",
@@ -32,6 +32,7 @@ const labels = {
 
 const VolleyBallDetails = () => {
   let { id } = useParams();
+  const [openModel, setOpenModel] = useState(false);
 
 
   const [show, setShow] = useState(false);
@@ -45,7 +46,7 @@ const VolleyBallDetails = () => {
   /* const [quantity, setQuantity] = useState(1); */
 
   useEffect(() => {
-    fetch("https://enigmatic-garden-34025.herokuapp.com/volleyBall")
+    fetch("https://blooming-thicket-66783.herokuapp.com/volleyBall")
       .then((res) => res.json())
       .then((data) => setTableTaPlayers(data));
   }, []);
@@ -95,7 +96,7 @@ const VolleyBallDetails = () => {
       return;
     }
     
-    // fetch("https://enigmatic-garden-34025.herokuapp.com/review", {
+    // fetch("https://blooming-thicket-66783.herokuapp.com/review", {
     fetch("https://blooming-thicket-66783.herokuapp.com/review", {
       method: "POST",
       headers: {
@@ -137,7 +138,7 @@ const VolleyBallDetails = () => {
               
 
 
-              <Button variant="primary" onClick={handleShow}>
+              <Button variant="primary" style={{marginRight:'10px'}} onClick={handleShow}>
                 Conecting
       </Button>
 
@@ -268,71 +269,50 @@ const VolleyBallDetails = () => {
 
 
 
-
-
-
-              <button className="details-player-video">
+           
+              
+              
+             
+      <button onClick={ () => setOpenModel(true)} className="details-player-video">
                 <FontAwesomeIcon
                   style={{ marginRight: "5px" }}
                   icon={faVideo}
                 />{" "}
-                <div
-                  className="modal fade"
-                  id="exampleModalToggle"
-                  aria-hidden="true"
-                  aria-labelledby="exampleModalToggleLabel"
-                  tabindex="-1"
-                >
-                  <div className="modal-dialog modal-dialog-centered">
-                    <div className="modal-content">
-                      <div className="modal-header">
-                        <h5
-                          className="modal-title"
-                          style={{ color: "ButtonText" }}
-                          id="exampleModalToggleLabel"
-                        >
-                          Player details video
-                        </h5>
-                        <button
-                          type="button"
-                          className="btn-close"
-                          data-bs-dismiss="modal"
-                          aria-label="Close"
-                        ></button>
-                      </div>
-                      <div className="modal-body">
-                        {/* <video src={video}></video> */}
-                        <iframe
-                          width="455"
-                          height="250"
-                          src="https://www.youtube.com/embed/387782CRNQM"
-                          title="YouTube video player"
-                          frameborder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowfullscreen
-                        ></iframe>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <a
-                  className="player-details-video"
-                  data-bs-toggle="modal"
-                  href="#exampleModalToggle"
-                  role="button"
-                >
+               
                   Play video
-                </a>
+                
               </button>
+
+
+
             </div>
-            <div>
-              {/* <div className='details-single-img'></div> */}
-              <img
-                className="details-player-img"
-                src={sinleTaTanis?.img}
-                alt=""
-              />
-            </div>
+            
+            {
+              openModel? <div> 
+
+
+<iframe style={{marginTop:'200px'}} width="560" height="315" src="https://www.youtube.com/embed/Iq1dxZ7HqXE?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <Button style={{ marginBottom:'100px'}} onClick={ () => setOpenModel(false)} >Close </Button>
+
+                </div>
+                :
+
+<div >
+{/* <div className='details-single-img'></div> */}
+<img 
+  className="details-player-img"
+  src={sinleTaTanis?.img}
+  alt=""
+/>
+</div>
+
+
+
+            }          
+              
+
+
+           
           </Container>
         </div>
       </>

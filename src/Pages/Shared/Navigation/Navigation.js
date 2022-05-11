@@ -3,7 +3,6 @@ import { Container, Nav, Navbar, NavDropdown, NavLink } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import useAuth from "../../../Hook/UseAuth";
-import cartlogo from "../../../Images/download.png";
 import logo from "../../../Images/logo.png";
 import TopNavbar from "../TopNavbar/TopNavbar";
 
@@ -55,7 +54,7 @@ const Navigation = () => {
        { user?.email ? 
        
       <div className="d-flex">
-           <Nav.Link className='link-style' as={Link} to="/dashboard"><h5 className='text-style'>DASHBOARD</h5></Nav.Link>
+           <Nav.Link className='link-style' as={Link} to="/dashboard2"><h5 className='text-style'>DASHBOARD</h5></Nav.Link>
         <h5 onClick={logOut} style={{cursor:'pointer', marginLeft: "51px" , marginTop:'30px'}} className='text-style'>LOGOUT</h5>
       </div>
        : 

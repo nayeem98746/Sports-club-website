@@ -1,10 +1,20 @@
+
 import React from 'react';
+
 import { useNavigate} from 'react-router-dom';
-import {  Button, Container, Modal } from 'react-bootstrap';
 import images from '../../Images/News/72752f5719a50f923ecc500d8138d343.jpg';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import StarBorderPurple500Icon from '@mui/icons-material/StarBorderPurple500';
+
 import TableImages from '../../Images/istockphoto-518118714-170667a.jpg';
+
+import React, { useEffect, useState } from 'react';
+import { IconContext } from "react-icons";
+import { FcRules } from 'react-icons/fc';
+import { Link} from 'react-router-dom';
+import TableImages from '../../Images/istockphoto-518118714-170667a.jpg';
+import './NewsPoint.css';
+
 
 import { Table } from 'react-bootstrap';
 import { useState, useEffect } from "react";
@@ -27,14 +37,20 @@ const NewsPoint = () => {
 
 
     const navigate = useNavigate()
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+
     
     const [event, setEvent] = useState([])
 
     useEffect(() => {
-      fetch("https://enigmatic-garden-34025.herokuapp.com/upcomingEvents")
+      fetch("https://blooming-thicket-66783.herokuapp.com/upcomingEvents")
         .then((res) => res.json())
         .then((data) => setEvent(data));
     }, []);
+
 
 console.log(event);
 
@@ -55,9 +71,6 @@ const Permetion = () => {
 
     
 }
-
-
-
 
     return (
         <Container id='news'>
@@ -86,7 +99,7 @@ const Permetion = () => {
 
               <table style={{width: "500px"}}>
                   <tbody>
-                      <tr style={{background: "rgba(245, 40, 145, 0.8)"}}>
+                      <tr style={{background: "rgba(245, 40, 145, 0.😎"}}>
                           <td style={{ fontWeight: "400", fontSize: "20px",  padding: "10px", width: "200px"}}><strong>Team</strong></td>
                           <td style={{ fontWeight: "400", fontSize: "20px", width: "100px"}}><strong>W</strong></td>
                           <td style={{ fontWeight: "400", fontSize: "20px"}}><strong>L</strong></td>
@@ -179,7 +192,7 @@ const Permetion = () => {
 
 
 
-                      <Button style={{marginRight: "50px", background: "#4e6dfa", padding: "10px", border: "none", cursor: "pointer", position: "absolute", top: "50%", left: "50%", color: "#000000"}} variant="primary" onClick={handleShow}>
+                      <Button className='news-pont-contest-b' style={{marginRight: "50px", background: "#4e6dfa", padding: "10px", border: "none", cursor: "pointer", position: "absolute", top: "50%", left: "50%", color: "#000000"}} variant="primary" onClick={handleShow}>
                       Up Coming 
       </Button>
 

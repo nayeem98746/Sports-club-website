@@ -1,7 +1,3 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import biograpy from "../../../Images/news_296_all-sports-banner_nq.png";
-import Navigation from "../../../Pages/Shared/Navigation/Navigation";
 import { faVideo } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Container, Modal } from "react-bootstrap";
@@ -9,13 +5,17 @@ import { Rating, Typography } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import IosShareIcon from "@mui/icons-material/IosShare";
 import { Box } from "@mui/system";
-import PlayerReviwe from "../../PlayerReviwe/PlayerReviwe";
-
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
+import { addReview } from "../../../features/PlayerReviewSlice/PlayerReviewSlice";
 import location from "../../../Images/Connting/819814.png";
 import email from "../../../Images/Connting/email.png";
 import phone from "../../../Images/Connting/phone-call.png";
-import { addReview } from "../../../features/PlayerReviewSlice/PlayerReviewSlice";
-import { useDispatch } from "react-redux";
+import biograpy from "../../../Images/news_296_all-sports-banner_nq.png";
+import Navigation from "../../../Pages/Shared/Navigation/Navigation";
+import PlayerReviwe from "../../PlayerReviwe/PlayerReviwe";
+
 
 const labels = {
   0.5: "Useless",
@@ -34,8 +34,11 @@ const BaseketBallDetails = () => {
   let { id } = useParams();
 
   const [openModel, setOpenModel] = useState(false);
+<<<<<<< HEAD
   
 
+=======
+>>>>>>> 7133d51f1fea022a6b5d534e96ec56742a99b6b9
 
   
   const [show, setShow] = useState(false);
@@ -47,7 +50,7 @@ const BaseketBallDetails = () => {
   /* const [quantity, setQuantity] = useState(1); */
 
   useEffect(() => {
-    fetch("https://enigmatic-garden-34025.herokuapp.com/basketBall")
+    fetch("https://blooming-thicket-66783.herokuapp.com/basketBall")
       .then((res) => res.json())
       .then((data) => setTableTaPlayers(data));
   }, []);
@@ -94,11 +97,11 @@ const BaseketBallDetails = () => {
       !newDispalyReviwe.feedback ||
       !newDispalyReviwe.PlayerName
     ) {
-      alert("All fields are required");
+      alert(`All fields are required`);
       return;
     }
     
-    // fetch("https://enigmatic-garden-34025.herokuapp.com/review", {
+    // fetch("https://blooming-thicket-66783.herokuapp.com/review", {
     fetch("https://blooming-thicket-66783.herokuapp.com/review", {
       method: "POST",
       headers: {
@@ -142,7 +145,7 @@ const BaseketBallDetails = () => {
               
               
               
-              <Button variant="primary" onClick={handleShow}>
+              <Button style={{marginRight:'10px'}} variant="primary" onClick={handleShow}>
                 Conecting
       </Button>
 
@@ -272,8 +275,12 @@ const BaseketBallDetails = () => {
       </Modal> 
               
               
+<<<<<<< HEAD
 
         <button onClick={ () => setOpenModel(true)} className="details-player-video">
+=======
+      <button onClick={ () => setOpenModel(true)} className="details-player-video">
+>>>>>>> 7133d51f1fea022a6b5d534e96ec56742a99b6b9
                 <FontAwesomeIcon
                   style={{ marginRight: "5px" }}
                   icon={faVideo}
@@ -290,8 +297,14 @@ const BaseketBallDetails = () => {
             {
               openModel? <div> 
 
+<<<<<<< HEAD
 <iframe width="560" height="315" src="https://www.youtube.com/embed/H0XhzyXHHPo?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <Button onClick={ () => setOpenModel(false)} >Close </Button>
+=======
+
+<iframe style={{marginTop:'200px'}} width="560" height="315" src="https://www.youtube.com/embed/dyIFohEjkyM?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <Button style={{ marginBottom:'100px'}} onClick={ () => setOpenModel(false)} >Close </Button>
+>>>>>>> 7133d51f1fea022a6b5d534e96ec56742a99b6b9
 
                 </div>
                 :
@@ -370,7 +383,7 @@ const BaseketBallDetails = () => {
                 A prolific goalscorer and a creative playmaker, Messi holds the
                 records for most goals in La Liga (419), a La Liga and European
                 league season (50), most hat-tricks in the UEFA Champions League
-                (😎, and most assists in La Liga (169) and the Copa América
+                (8), and most assists in La Liga (169) and the Copa América
                 (12). He has scored 698 senior career goals for club and
                 country.
               </p>
