@@ -34,11 +34,6 @@ const BaseketBallDetails = () => {
   let { id } = useParams();
 
   const [openModel, setOpenModel] = useState(false);
-<<<<<<< HEAD
-  
-
-=======
->>>>>>> 7133d51f1fea022a6b5d534e96ec56742a99b6b9
 
   
   const [show, setShow] = useState(false);
@@ -275,12 +270,7 @@ const BaseketBallDetails = () => {
       </Modal> 
               
               
-<<<<<<< HEAD
-
-        <button onClick={ () => setOpenModel(true)} className="details-player-video">
-=======
       <button onClick={ () => setOpenModel(true)} className="details-player-video">
->>>>>>> 7133d51f1fea022a6b5d534e96ec56742a99b6b9
                 <FontAwesomeIcon
                   style={{ marginRight: "5px" }}
                   icon={faVideo}
@@ -297,14 +287,9 @@ const BaseketBallDetails = () => {
             {
               openModel? <div> 
 
-<<<<<<< HEAD
-<iframe width="560" height="315" src="https://www.youtube.com/embed/H0XhzyXHHPo?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <Button onClick={ () => setOpenModel(false)} >Close </Button>
-=======
 
 <iframe style={{marginTop:'200px'}} width="560" height="315" src="https://www.youtube.com/embed/dyIFohEjkyM?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <Button style={{ marginBottom:'100px'}} onClick={ () => setOpenModel(false)} >Close </Button>
->>>>>>> 7133d51f1fea022a6b5d534e96ec56742a99b6b9
 
                 </div>
                 :

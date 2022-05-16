@@ -46,9 +46,16 @@ import Payment from "./Pages/Dashboard/Payment/Payment";
 import UpComeingContest from "./Pages/Contest/UpComeingContest";
 import Dashboardtwo from "./Pages/Dashboard/Dashboardtwo/Dashboardtwo";
 import CheckOut from "./Pages/CheckOut/CheckOut";
+import DaashboardHome from "./Pages/Dashboard/Dashboardtwo/DaashboardHome";
+
 
 
 function App() {
+
+  
+
+  
+
   return (
     <div>
       <AuthProvider>
@@ -89,6 +96,7 @@ function App() {
             {/* dashboardtwo  */}
             <Route path="/dashboard2" element={<Dashboardtwo />} >
             <Route path={`/dashboard2/addproduct`} element={<AddProduct></AddProduct>} />
+            <Route path={`/dashboard2/home`} element={<DaashboardHome></DaashboardHome>} />
             <Route path={`/dashboard2/addadmin`} element={<AddAdmin></AddAdmin>} />
            <Route path={`/dashboard2/addreview`} element={<AddReview></AddReview>} />
             <Route path={`/dashboard2/addticketbooking`} element={<AddTicketBooking></AddTicketBooking>} />
