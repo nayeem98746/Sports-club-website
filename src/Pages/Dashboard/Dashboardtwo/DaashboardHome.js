@@ -1,12 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { io } from 'socket.io-client';
 import useAuth from '../../../Hook/UseAuth';
+import DashMessage from '../DashMessage/DashMessage';
+import MessageIcon from '@mui/icons-material/Message';
 
 const DaashboardHome = () => {
     const {user,admin} = useAuth();
     const [replayTxt,setReplayTxt] = useState("");
     const [allMessage,setAllMessage] = useState([]);
     const [currentMessage,setCurrentMessage] = useState({});
+    const [isDashConnect,setIsDashConnect] = useState({});
     
 
     const socketRef = useRef();
@@ -55,10 +58,10 @@ const DaashboardHome = () => {
     return (
         <div>
             <h2>d home</h2>
+            {isDashConnect ? <DashMessage hendlaMessage={hendlaMessage} AllMessage={allMessage} setIsConnect={setIsDashConnect} setCurrentMessage={setCurrentMessage} /> :   <p style={{position: "fixed", right: "20px", bottom: "10px"}}> Chat <MessageIcon  onClick={() => setIsDashConnect(true)} > </MessageIcon> </p> }
 
 
-
-            <input onKeyUp={e=>{hendlaMessage(e);setCurrentMessage(e.target.value)}} type="text" />
+           
         </div>
     );
 };
