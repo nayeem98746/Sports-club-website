@@ -1,11 +1,11 @@
 import { faVideo } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Container, Modal } from "react-bootstrap";
-import { Rating, Typography } from "@mui/material";
-import StarIcon from "@mui/icons-material/Star";
 import IosShareIcon from "@mui/icons-material/IosShare";
+import StarIcon from "@mui/icons-material/Star";
+import { Rating, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
+import { Button, Container, Modal } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { addReview } from "../../../features/PlayerReviewSlice/PlayerReviewSlice";

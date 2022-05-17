@@ -1,11 +1,13 @@
 import { faVideo } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import IosShareIcon from "@mui/icons-material/IosShare";
-import StarIcon from "@mui/icons-material/Star";
+
+import { Button, Container, Modal } from "react-bootstrap";
 import { Rating, Typography } from "@mui/material";
+import StarIcon from "@mui/icons-material/Star";
+
+import IosShareIcon from "@mui/icons-material/IosShare";
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
-import { Button, Container } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { addReview } from "../../features/PlayerReviewSlice/PlayerReviewSlice";
@@ -32,10 +34,15 @@ const labels = {
 
 const HockeyPlayersDetails = () => {
   let { id } = useParams();
+  const [openModel, setOpenModel] = useState(false);
+
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const [hockeyPlayers, setHockeyPlayers] = useState([]);
   const [singleHockeys, setSingleHockeys] = useState({});
- 
+
   /* const [quantity, setQuantity] = useState(1); */
 
   useEffect(() => {
@@ -71,14 +78,15 @@ const HockeyPlayersDetails = () => {
     console.log(newValue);
   };
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const handelonSubmit = (data) => {
     data.preventDefault();
-    orderinfo.PlayerName = singleHockeys?.name
+    orderinfo.PlayerName = singleHockeys?.name;
     const newDispalyReviwe = {
-      ...orderinfo,PlayerName:singleHockeys?.name
+      ...orderinfo,
+      PlayerName: singleHockeys?.name,
     };
-    newDispalyReviwe.PlayerName = singleHockeys?.name
+    newDispalyReviwe.PlayerName = singleHockeys?.name;
     if (
       !newDispalyReviwe.email ||
       !newDispalyReviwe.name ||
@@ -88,9 +96,9 @@ const HockeyPlayersDetails = () => {
       alert(`All fields are required`);
       return;
     }
-    
+
     // fetch("https://blooming-thicket-66783.herokuapp.com/review", {
-    fetch("http://localhost:7000/review", {
+    fetch("https://blooming-thicket-66783.herokuapp.com/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -127,213 +135,183 @@ const HockeyPlayersDetails = () => {
 
               <p className="details-player-des">{singleHockeys?.describe}</p>
 
-              <button
-                className="details-connecting cart-btn"
-                type="button"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
+              <Button
+                style={{ marginRight: "10px" }}
+                variant="primary"
+                onClick={handleShow}
               >
                 Conecting
-              </button>
+              </Button>
 
-              <div
-                class="modal fade"
-                id="exampleModal"
-                tabindex="-1"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true"
-              >
-                <div
-                  style={{ marginLeft: "300px", marginTop: "50px" }}
-                  class="modal-dialog"
+              <Modal show={show} onHide={handleClose}>
+                <Modal.Header
+                  className="ContentsFullBanner"
+                  style={{ margin: "0 auto", width: "1000px" }}
+                  closeButton
                 >
-                  <div
-                    style={{ width: "1000px" }}
-                    class="modal-content modal-style"
-                  >
-                    <div class="modal-header-style">
-                      <h5 class="modal-titel1 mb-3">
-                        Send Your Variable Messages{" "}
-                      </h5>
-                    </div>
-                    <div class="modal-body">
-                      <div className="text-center text-white">
-                        <div style={{ display: "flex" }} className="PlayerIcon">
-                          <div className="location">
-                            <img
-                              style={{ width: "100px", padding: "20px" }}
-                              src={location}
-                              alt=""
-                            />
+                  <Modal.Title>
+                    <h5 class="modal-titel1 mb-3">
+                      Send Your Variable Messages{" "}
+                    </h5>
+                  </Modal.Title>
+                </Modal.Header>
+                <Modal.Body
+                  className="ContentsFullBanner"
+                  style={{ width: "1000px" }}
+                >
+                  <div className="text-center text-white">
+                    <div style={{ display: "flex" }} className="PlayerIcon">
+                      <div className="location">
+                        <img
+                          style={{ width: "100px", padding: "20px" }}
+                          src={location}
+                          alt=""
+                        />
 
-                            <h6>{singleHockeys?.Nationality}</h6>
-                          </div>
-                          <div className="email">
-                            <img
-                              style={{
-                                width: "100px",
-                                padding: "20px",
-                                opacity: ".4",
-                              }}
-                              src={email}
-                              alt=""
-                            />
-                            <h6>sport@gmail.com</h6>
-                          </div>
+                        <h6>{singleHockeys?.nationality}</h6>
+                      </div>
+                      <div className="email">
+                        <img
+                          style={{
+                            width: "100px",
+                            padding: "20px",
+                            opacity: ".4",
+                          }}
+                          src={email}
+                          alt=""
+                        />
+                        <h6>sport@gmail.com</h6>
+                      </div>
 
-                          <div className="phone">
-                            <img
-                              style={{ width: "100px", padding: "20px" }}
-                              src={phone}
-                              alt=""
-                            />
-                            <h6>01908145097</h6>
-                          </div>
-                        </div>
-
-                        <form
-                          style={{ marginTop: "100px" }}
-                          onSubmit={hendalPalyer}
-                        >
-                          <br />
-                          <input
-                            type="text"
-                            name="name"
-                            onBlur={hendalOnBlure}
-                            id=""
-                            placeholder="Your Name"
-                            required
-                            style={{
-                              width: "200px",
-                              padding: "10px",
-                              borderRadius: "05px",
-                              margin: "20px",
-                            }}
-                          />
-                          <input
-                            type="text"
-                            name="email"
-                            onBlur={hendalOnBlure}
-                            id=""
-                            placeholder="Your Email"
-                            required
-                            style={{
-                              width: "200px",
-                              padding: "10px",
-                              borderRadius: "05px",
-                              margin: "20px",
-                            }}
-                          />
-                          <input
-                            name="PlayerName"
-                            onBlur={hendalOnBlure}
-                            defaultValue={singleHockeys?.name}
-                            type="text"
-                            id=""
-                            placeholder="Player Name"
-                            required
-                            style={{
-                              width: "200px",
-                              padding: "10px",
-                              borderRadius: "05px",
-                              margin: "20px",
-                            }}
-                          />
-                          <textarea
-                            className="textarea"
-                            onBlur={hendalOnBlure}
-                            type="text"
-                            name="deatls"
-                            placeholder="Type Your Feedback"
-                            style={{
-                              width: "400px",
-                              padding: "10px",
-                              borderRadius: "05px",
-                              margin: "20px",
-                            }}
-                          />{" "}
-                          <br />
-                          <button class="modal-btn" type="button">
-                            Send
-                          </button>
-                        </form>
+                      <div className="phone">
+                        <img
+                          style={{ width: "100px", padding: "20px" }}
+                          src={phone}
+                          alt=""
+                        />
+                        <h6>01908145097</h6>
                       </div>
                     </div>
-                    <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="modal-btn"
-                        data-bs-dismiss="modal"
-                      >
-                        Close
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
-              <button className="details-player-video">
+                    <form
+                      style={{ marginTop: "100px" }}
+                      onSubmit={hendalPalyer}
+                    >
+                      <br />
+                      <input
+                        type="text"
+                        name="name"
+                        onBlur={hendalOnBlure}
+                        id=""
+                        placeholder="Your Name"
+                        required
+                        style={{
+                          width: "200px",
+                          padding: "10px",
+                          borderRadius: "05px",
+                          margin: "20px",
+                        }}
+                      />
+                      <input
+                        type="text"
+                        name="email"
+                        onBlur={hendalOnBlure}
+                        id=""
+                        placeholder="Your Email"
+                        required
+                        style={{
+                          width: "200px",
+                          padding: "10px",
+                          borderRadius: "05px",
+                          margin: "20px",
+                        }}
+                      />
+                      <input
+                        name="PlayerName"
+                        onBlur={hendalOnBlure}
+                        defaultValue={singleHockeys?.name}
+                        type="text"
+                        id=""
+                        placeholder="Player Name"
+                        required
+                        style={{
+                          width: "200px",
+                          padding: "10px",
+                          borderRadius: "05px",
+                          margin: "20px",
+                        }}
+                      />
+                      <textarea
+                        className="textarea"
+                        onBlur={hendalOnBlure}
+                        type="text"
+                        name="deatls"
+                        placeholder="Type Your Feedback"
+                        style={{
+                          width: "400px",
+                          padding: "10px",
+                          borderRadius: "05px",
+                          margin: "20px",
+                        }}
+                      />{" "}
+                      <br />
+                      <button class="modal-btn" type="button">
+                        Send
+                      </button>
+                    </form>
+                  </div>
+                </Modal.Body>
+                <Modal.Footer
+                  style={{ margin: "0 auto", width: "1000px" }}
+                  className="ContentsFullBanner"
+                >
+                  <Button variant="secondary" onClick={handleClose}>
+                    Close
+                  </Button>
+                </Modal.Footer>
+              </Modal>
+
+              <button
+                onClick={() => setOpenModel(true)}
+                className="details-player-video"
+              >
                 <FontAwesomeIcon
                   style={{ marginRight: "5px" }}
                   icon={faVideo}
                 />{" "}
-                <div
-                  className="modal fade"
-                  id="exampleModalToggle"
-                  aria-hidden="true"
-                  aria-labelledby="exampleModalToggleLabel"
-                  tabindex="-1"
-                >
-                  <div className="modal-dialog modal-dialog-centered">
-                    <div className="modal-content">
-                      <div className="modal-header">
-                        <h5
-                          className="modal-title"
-                          style={{ color: "ButtonText" }}
-                          id="exampleModalToggleLabel"
-                        >
-                          Player details video
-                        </h5>
-                        <button
-                          type="button"
-                          className="btn-close"
-                          data-bs-dismiss="modal"
-                          aria-label="Close"
-                        ></button>
-                      </div>
-                      <div className="modal-body">
-                        {/* <video src={video}></video> */}
-                        <iframe
-                          width="455"
-                          height="250"
-                          src="https://www.youtube.com/embed/387782CRNQM"
-                          title="YouTube video player"
-                          frameborder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowfullscreen
-                        ></iframe>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <a
-                  className="player-details-video"
-                  data-bs-toggle="modal"
-                  href="#exampleModalToggle"
-                  role="button"
-                >
-                  Play video
-                </a>
+                Play video
               </button>
             </div>
-            <div>
-              {/* <div className='details-single-img'></div> */}
-              <img
-                className="details-player-img"
-                src={singleHockeys?.img}
-                alt=""
-              />
-            </div>
+
+            {openModel ? (
+              <div>
+                <iframe
+                  style={{ marginTop: "200px" }}
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/Ndw5Ofu_ucc?autoplay=1"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+                <Button
+                  style={{ marginBottom: "100px" }}
+                  onClick={() => setOpenModel(false)}
+                >
+                  Close{" "}
+                </Button>
+              </div>
+            ) : (
+              <div>
+                {/* <div className='details-single-img'></div> */}
+                <img
+                  className="details-player-img"
+                  src={singleHockeys?.img}
+                  alt=""
+                />
+              </div>
+            )}
           </Container>
         </div>
       </>
@@ -482,7 +460,7 @@ const HockeyPlayersDetails = () => {
         </div>
       </div>
 
-      <PlayerReviwe  PlayerName={singleHockeys?.name} />
+      <PlayerReviwe PlayerName={singleHockeys?.name} />
 
       <Container className="Player-All">
         <div className="From-Main">
