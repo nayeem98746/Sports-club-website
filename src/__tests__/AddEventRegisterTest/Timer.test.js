@@ -1,4 +1,4 @@
-import { render,screen } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
 import Timer from "../../Pages/Dashboard/AddEventRegister/Timer"
 
 describe("Timer",()=>{

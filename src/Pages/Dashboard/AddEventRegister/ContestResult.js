@@ -37,7 +37,7 @@ const ContestResult = () => {
     // console.log(contestUsers);
     useEffect(()=>{
         let _contestResult = [];
-        console.log(contestPoint);
+        // console.log(contestPoint);
         contestPoint.forEach((result) =>{
             const resultedUser =  contestUsers.find(participant => participant.par_id === result.par_id)
             if (resultedUser) {

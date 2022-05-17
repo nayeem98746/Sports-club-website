@@ -16,7 +16,6 @@ import biograpy from "../../../Images/news_296_all-sports-banner_nq.png";
 import Navigation from "../../../Pages/Shared/Navigation/Navigation";
 import PlayerReviwe from "../../PlayerReviwe/PlayerReviwe";
 
-
 const labels = {
   0.5: "Useless",
   1: "Useless+",
@@ -74,15 +73,15 @@ const BaseBallDetails = () => {
     console.log(newValue);
   };
 
-
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const handelonSubmit = (data) => {
     data.preventDefault();
-    orderinfo.PlayerName = sinleTaTanis?.name
+    orderinfo.PlayerName = sinleTaTanis?.name;
     const newDispalyReviwe = {
-      ...orderinfo, PlayerName: sinleTaTanis?.name
+      ...orderinfo,
+      PlayerName: sinleTaTanis?.name,
     };
-    newDispalyReviwe.PlayerName = sinleTaTanis?.name
+    newDispalyReviwe.PlayerName = sinleTaTanis?.name;
     if (
       !newDispalyReviwe.email ||
       !newDispalyReviwe.name ||
@@ -107,7 +106,6 @@ const BaseBallDetails = () => {
         if (data.insertedId) {
           alert("comment successful!");
           dispatch(addReview(newDispalyReviwe));
-
         }
       });
   };
@@ -134,146 +132,135 @@ const BaseBallDetails = () => {
 
               <Button variant="primary" onClick={handleShow}>
                 Conecting
-      </Button>
+              </Button>
 
-      <Modal  show={show} onHide={handleClose}>
-        <Modal.Header className='ContentsFullBanner' style={{margin: "0 auto", width: "1000px"}}  closeButton>
-          <Modal.Title> 
-          <h5 class="modal-titel1 mb-3">
-                        Send Your Variable Messages{" "}
-                      </h5>
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body className='ContentsFullBanner'  style={{width: "1000px"}}>
+              <Modal show={show} onHide={handleClose}>
+                <Modal.Header
+                  className="ContentsFullBanner"
+                  style={{ margin: "0 auto", width: "1000px" }}
+                  closeButton
+                >
+                  <Modal.Title>
+                    <h5 class="modal-titel1 mb-3">
+                      Send Your Variable Messages{" "}
+                    </h5>
+                  </Modal.Title>
+                </Modal.Header>
+                <Modal.Body
+                  className="ContentsFullBanner"
+                  style={{ width: "1000px" }}
+                >
+                  <div className="text-center text-white">
+                    <div style={{ display: "flex" }} className="PlayerIcon">
+                      <div className="location">
+                        <img
+                          style={{ width: "100px", padding: "20px" }}
+                          src={location}
+                          alt=""
+                        />
 
-
-
-        <div className="text-center text-white">
-                        <div style={{ display: "flex" }} className="PlayerIcon">
-                          <div className="location">
-                            <img
-                              style={{ width: "100px", padding: "20px" }}
-                              src={location}
-                              alt=""
-                            />
-
-                            <h6>{sinleTaTanis?.Nationality}</h6>
-                          </div>
-                          <div className="email">
-                            <img
-                              style={{
-                                width: "100px",
-                                padding: "20px",
-                                opacity: ".4",
-                              }}
-                              src={email}
-                              alt=""
-                            />
-                            <h6>sport@gmail.com</h6>
-                          </div>
-
-                          <div className="phone">
-                            <img
-                              style={{ width: "100px", padding: "20px" }}
-                              src={phone}
-                              alt=""
-                            />
-                            <h6>01908145097</h6>
-                          </div>
-                        </div>
-
-                        <form
-                          style={{ marginTop: "100px" }}
-                          onSubmit={hendalPalyer}
-                        >
-                          <br />
-                          <input
-                            type="text"
-                            name="name"
-                            onBlur={hendalOnBlure}
-                            id=""
-                            placeholder="Your Name"
-                            required
-                            style={{
-                              width: "200px",
-                              padding: "10px",
-                              borderRadius: "05px",
-                              margin: "20px",
-                            }}
-                          />
-                          <input
-                            type="text"
-                            name="email"
-                            onBlur={hendalOnBlure}
-                            id=""
-                            placeholder="Your Email"
-                            required
-                            style={{
-                              width: "200px",
-                              padding: "10px",
-                              borderRadius: "05px",
-                              margin: "20px",
-                            }}
-                          />
-                          <input
-                            name="PlayerName"
-                            onBlur={hendalOnBlure}
-                            defaultValue={sinleTaTanis?.name}
-                            type="text"
-                            id=""
-                            placeholder="Player Name"
-                            required
-                            style={{
-                              width: "200px",
-                              padding: "10px",
-                              borderRadius: "05px",
-                              margin: "20px",
-                            }}
-                          />
-                          <textarea
-                            className="textarea"
-                            onBlur={hendalOnBlure}
-                            type="text"
-                            name="deatls"
-                            placeholder="Type Your Feedback"
-                            style={{
-                              width: "400px",
-                              padding: "10px",
-                              borderRadius: "05px",
-                              margin: "20px",
-                            }}
-                          />{" "}
-                          <br />
-                          <button class="modal-btn" type="button">
-                            Send
-                          </button>
-                        </form>
+                        <h6>{sinleTaTanis?.Nationality}</h6>
                       </div>
-        
+                      <div className="email">
+                        <img
+                          style={{
+                            width: "100px",
+                            padding: "20px",
+                            opacity: ".4",
+                          }}
+                          src={email}
+                          alt=""
+                        />
+                        <h6>sport@gmail.com</h6>
+                      </div>
 
+                      <div className="phone">
+                        <img
+                          style={{ width: "100px", padding: "20px" }}
+                          src={phone}
+                          alt=""
+                        />
+                        <h6>01908145097</h6>
+                      </div>
+                    </div>
 
-        </Modal.Body>
-        <Modal.Footer style={{margin: "0 auto", width: "1000px"}}  className='ContentsFullBanner'>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          
-        </Modal.Footer>
-      </Modal> 
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-            
-
+                    <form
+                      style={{ marginTop: "100px" }}
+                      onSubmit={hendalPalyer}
+                    >
+                      <br />
+                      <input
+                        type="text"
+                        name="name"
+                        onBlur={hendalOnBlure}
+                        id=""
+                        placeholder="Your Name"
+                        required
+                        style={{
+                          width: "200px",
+                          padding: "10px",
+                          borderRadius: "05px",
+                          margin: "20px",
+                        }}
+                      />
+                      <input
+                        type="text"
+                        name="email"
+                        onBlur={hendalOnBlure}
+                        id=""
+                        placeholder="Your Email"
+                        required
+                        style={{
+                          width: "200px",
+                          padding: "10px",
+                          borderRadius: "05px",
+                          margin: "20px",
+                        }}
+                      />
+                      <input
+                        name="PlayerName"
+                        onBlur={hendalOnBlure}
+                        defaultValue={sinleTaTanis?.name}
+                        type="text"
+                        id=""
+                        placeholder="Player Name"
+                        required
+                        style={{
+                          width: "200px",
+                          padding: "10px",
+                          borderRadius: "05px",
+                          margin: "20px",
+                        }}
+                      />
+                      <textarea
+                        className="textarea"
+                        onBlur={hendalOnBlure}
+                        type="text"
+                        name="deatls"
+                        placeholder="Type Your Feedback"
+                        style={{
+                          width: "400px",
+                          padding: "10px",
+                          borderRadius: "05px",
+                          margin: "20px",
+                        }}
+                      />{" "}
+                      <br />
+                      <button class="modal-btn" type="button">
+                        Send
+                      </button>
+                    </form>
+                  </div>
+                </Modal.Body>
+                <Modal.Footer
+                  style={{ margin: "0 auto", width: "1000px" }}
+                  className="ContentsFullBanner"
+                >
+                  <Button variant="secondary" onClick={handleClose}>
+                    Close
+                  </Button>
+                </Modal.Footer>
+              </Modal>
 
               <button className="details-player-video">
                 <FontAwesomeIcon
