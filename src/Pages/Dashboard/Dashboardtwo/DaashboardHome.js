@@ -6,35 +6,54 @@ import MessageIcon from '@mui/icons-material/Message';
 
 const DaashboardHome = () => {
     const {user,admin} = useAuth();
-    const [replayTxt,setReplayTxt] = useState("");
-    const [allMessage,setAllMessage] = useState([]);
-    const [currentMessage,setCurrentMessage] = useState({});
-    const [isDashConnect,setIsDashConnect] = useState({});
+
+
+    const [isConnect, setIsConnect] = useState(true);
+
+    const [messageValu, setMessageValu] = useState('');
     
-
-    const socketRef = useRef();
-    socketRef.current = io("http://localhost:7000");
-
+    const [ansMessage,setAnsMessage] = useState([]);
+    const [AllMessage,setAllMessage] = useState([]);
+  
+     console.log(AllMessage, "data");
+  
+  
+  
+  
+    // const [id, setId] = useState(userId);
+  
+   const socketRef = useRef();
+  
     useEffect( () => {
+      socketRef.current = io("http://localhost:7000");
       socketRef.current.on("chatMessage", (data)=>{
-        setAllMessage(data.question);
-      
+        console.log(data);
         
       });
     } ,[])
-
-
-
+  
+    useEffect( () => {
+      socketRef.current = io("http://localhost:7000");
+      socketRef.current.on("getMessage", (data)=>{
+        setAnsMessage(data.ans);
+        
+        
+      });
+    } ,[])
+    
     useEffect(()=>{
-      const tempMsg = [...replayTxt, allMessage];
-      setReplayTxt(tempMsg);
-      console.log(replayTxt);
-    },[allMessage])
+      
+      const tempMsg = [...AllMessage,ansMessage];
+      
+        setAllMessage(tempMsg);
+    },[ansMessage])
+  
+  
 
 
-    useEffect( (data) => {
-        if (user.email && !admin) {
-            socketRef.current.emit("chatMessage",{admin_email: user.email});
+    useEffect( () => {
+        if (user.email && admin) {
+            socketRef.current.emit("chatMessage",{ admin_email: user.email});
             
 
         }
@@ -42,23 +61,27 @@ const DaashboardHome = () => {
 
 
 
-    const hendlaMessage = (e) => {
-        if(e.target.value && !admin){
-          if(e.keyCode === 13){
-            socketRef.current.emit("chatMessage",{message: currentMessage, admin_email: user.email})
-            e.target.value = "";
-            console.log(currentMessage);
-          }
+  
 
-        }else{
-          alert("type Something")
-        }
+const hendlaMessage = (e) => {
+  if(e.target.value){
+    if(e.keyCode === 13){
+      socketRef.current.emit("chatMessage",{message: messageValu,  admin_email: user.email})
+      e.target.value = "";
+    }
+
+  }else{
+    alert("type Something")
+  }
 }
   
     return (
         <div>
-            <h2>d home</h2>
-            {isDashConnect ? <DashMessage hendlaMessage={hendlaMessage} AllMessage={allMessage} setIsConnect={setIsDashConnect} setCurrentMessage={setCurrentMessage} /> :   <p style={{position: "fixed", right: "20px", bottom: "10px"}}> Chat <MessageIcon  onClick={() => setIsDashConnect(true)} > </MessageIcon> </p> }
+            
+            
+            
+            <h2>Dashboard Home</h2>
+            {isConnect ? <DashMessage hendlaMessage={hendlaMessage} AllMessage={AllMessage} setIsConnect={setIsConnect} setMessageValu={setMessageValu} admin={admin} /> :   <p style={{position: "fixed", right: "20px", bottom: "100px", cursor: "pointer"}}> Chat <MessageIcon  onClick={() => setIsConnect(true)} > </MessageIcon> </p> }
 
 
            

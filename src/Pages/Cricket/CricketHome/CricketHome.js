@@ -5,8 +5,6 @@ import Navigation from '../../Shared/Navigation/Navigation';
 import CricketMatch from '../CricketMatch/CricketMatch';
 import BookingTactk from '../../Football/BookingTactk/BookingTactk';
 import CricketPlayers from '../CricketPlayers/CricketPlayers';
-import CricketLeague from '../CricketLeague/CricketLeague';
-import CricketMatchTema from '../CricketMatchTema/CricketMatchTema';
 import CricketSlider from '../CricketSlider/CricketSlider';
 
 const CricketHome = () => {
@@ -15,10 +13,8 @@ const CricketHome = () => {
               <Navigation />
             <CricketBanner />
             <CricketMatch />
+            <CricketPlayers />            
             <BookingTactk />
-            <CricketPlayers />
-            <CricketLeague />
-            <CricketMatchTema />
             <CricketSlider />
             <Footer />
 

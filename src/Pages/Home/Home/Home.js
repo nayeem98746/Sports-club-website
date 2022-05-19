@@ -21,10 +21,17 @@ const { io } = require("socket.io-client");
 const Home = () => {
 
   const [isConnect, setIsConnect] = useState(true);
+
   const [messageValu, setMessageValu] = useState('');
+  
   const [ansMessage,setAnsMessage] = useState([]);
   const [AllMessage,setAllMessage] = useState([]);
-console.log(AllMessage);
+
+   console.log(AllMessage, "data");
+
+
+
+
   // const [id, setId] = useState(userId);
 
  const socketRef = useRef();
@@ -45,7 +52,9 @@ console.log(AllMessage);
   } ,[])
   
   useEffect(()=>{
+    
     const tempMsg = [...AllMessage,ansMessage];
+    
       setAllMessage(tempMsg);
   },[ansMessage])
 

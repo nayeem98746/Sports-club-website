@@ -43,7 +43,7 @@ const Message = ({setIsConnect,hendlaMessage, AllMessage,setMessageValu}) => {
                                 return <div style={{marginBottom: "50px"}}>
 
                                     <div className="Person">
-                                    <PersonIcon style={{color: "#000", display: "inline-block", marginBottom: "3px"}} /><p style={{color: "#000", display: "inline-block"}}>{user.displayName?.slice(0, 10)} {dateToTime(localDate)} </p> 
+                                    <PersonIcon style={{color: "#000", display: "inline-block", marginBottom: "3px"}} /><p style={{color: "#000", display: "inline-block"}}>{user?.displayName?.slice(0, 10)} {dateToTime(localDate)} </p> 
                                     </div>
                                     <p className='Question'>{msg?.question}
                                     </p>
@@ -51,7 +51,8 @@ const Message = ({setIsConnect,hendlaMessage, AllMessage,setMessageValu}) => {
 
                                     <div className="User">
                                         <img style={{width: "25px", marginBottom: "3px", marginRight: "10px"}} src={logo} alt="" />
-                                    <p style={{color: "#000", display: "inline-block"}}>SportClub</p> 
+                                       
+                                    <p style={{color: "#000", display: "inline-block"}}>SportClub  {dateToTime(localDate)}</p> 
                                     </div>
                                     <div className="Ans">
                                     

@@ -7,9 +7,9 @@ import useAuth from '../../../Hook/UseAuth';
 import logo from '../../../Images/Chat/sports.png';
 
 
-const DashMessage = ({setIsDashConnect,hendlaMessage, allMessage, setCurrentMessage}) => {
+const DashMessage = ({setIsConnect,hendlaMessage, AllMessage,setMessageValu, admin}) => {
 
-    //   console.log(ansMessage);
+    //   console.log(allMessage);
 
     const {user} = useAuth();
 
@@ -26,54 +26,63 @@ const DashMessage = ({setIsDashConnect,hendlaMessage, allMessage, setCurrentMess
     return (
         <div  className="Message">
          
+{admin ? 
+
+<div className='ChatMessage'>
+
+<div className="Header">
+    <div>   <LinearScaleIcon className="Header_Icon" /></div>
+    <div className="Header_Text"><p>Sports Club</p></div>
+    <div style={{textAlign: "right"}}> <DoDisturbOnIcon className="Header_Icon" onClick={() => setIsConnect(false)} /> </div>
+</div>
+
+<div className='Chat'>
+    {
+        AllMessage.map(msg =>{
+                return <div style={{marginBottom: "50px"}}>
+
+                    <div className="Person">
+                    <PersonIcon style={{color: "#000", display: "inline-block", marginBottom: "3px"}} /><p style={{color: "#000", display: "inline-block"}}>{user?.displayName?.slice(0, 10)} {dateToTime(localDate)} </p> 
+                    </div>
+                    <p className='Question'>{msg?.question}
+                    </p>
 
 
-            <div className='ChatMessage'>
-
-                <div className="Header">
-                    <div>   <LinearScaleIcon className="Header_Icon" /></div>
-                    <div className="Header_Text"><p>Sports Club</p></div>
-                    <div style={{textAlign: "right"}}> <DoDisturbOnIcon className="Header_Icon" onClick={() => setIsDashConnect(false)} /> </div>
-                </div>
-           
-                <div className='Chat'>
+                    <div className="User">
+                        <img style={{width: "25px", marginBottom: "3px", marginRight: "10px"}} src={logo} alt="" />
+                    <p style={{color: "#000", display: "inline-block"}}>SportClub</p> 
+                    </div>
+                    <div className="Ans">
+                    
+                    <p>{msg?.Ans}</p>
                     {
-                        allMessage?.map(msg =>{
-                                return <div style={{marginBottom: "50px"}}>
-
-                                    <div className="Person">
-                                    <PersonIcon style={{color: "#000", display: "inline-block", marginBottom: "3px"}} /><p style={{color: "#000", display: "inline-block"}}>{user.displayName?.slice(0, 10)} {dateToTime(localDate)} </p> 
-                                    </div>
-                                    <p className='Question'>{msg?.question}
-                                    </p>
-
-
-                                    <div className="User">
-                                        <img style={{width: "25px", marginBottom: "3px", marginRight: "10px"}} src={logo} alt="" />
-                                    <p style={{color: "#000", display: "inline-block"}}>SportClub</p> 
-                                    </div>
-                                    <div className="Ans">
-                                    
-                                    <p>{msg?.Ans}</p>
-                                    {
-                                        msg?.contact_link && <a href={msg?.contact_link}>{msg?.contact_link}</a>
-                                    }
-                                    </div>
-                                    
-                                </div>
-                        })
+                        msg?.contact_link && <a href={msg?.contact_link}>{msg?.contact_link}</a>
                     }
+                    </div>
+                    
                 </div>
-                <div className="InputBox">
-            <input placeholder='write a message' onKeyUp={e=>{hendlaMessage(e);setCurrentMessage(e.target.value)}} type="text" />
+        })
+    }
+</div>
+<div className="InputBox">
+<input placeholder='write a message' onKeyUp={e=>{hendlaMessage(e);setMessageValu(e.target.value)}} type="text" />
+
+<SendIcon className="Header_Icon" />
+
+<p style={{color: "#000", textAlign: "center", marginTop: "10px"}}>Place today place tomorrow</p>
+
+
+</div>
+</div> :
+
+
+<h1>jdssdahfdfs hujdsagh edrysh hdgsgftgg</h1>
+
+
+
+}
+
             
-            <SendIcon className="Header_Icon" />
-
-            <p style={{color: "#000", textAlign: "center", marginTop: "10px"}}>Place today place tomorrow</p>
-
-
-            </div>
-        </div>
         </div>
     );
 };

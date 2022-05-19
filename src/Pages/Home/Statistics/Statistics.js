@@ -14,9 +14,9 @@ const Statistics = () => {
         <h1>PLAYERS STATISTICS</h1>
       </div>
 
-      <div className="Players">
+      <div className="Playerares">
         <h2>Maynuddin </h2>
-        <div className="Player">
+        <div className="Playerare">
           <div className="feild">
             <h3>NATIONALITY</h3><p>Bangladesh</p>
           </div>

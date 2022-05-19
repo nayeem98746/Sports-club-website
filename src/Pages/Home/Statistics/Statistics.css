@@ -25,11 +25,11 @@
 }
 
 
-.Players{
+.Playerares{
     background: none;
 }
 
-.Players .Player .feild {
+.Playerares .Playerare .feild {
     display: flex;
     background-color: rgb(0, 0, 0);
     color: aliceblue;
@@ -39,7 +39,7 @@
 }
 
 
-.Players h2 {
+.Playerares h2 {
     margin-top: 0px;
     margin-bottom: 30px;
     font-size: 30px;
@@ -47,7 +47,7 @@
 }
 
 
-.Players .Player .Unfeild {
+.Playerares .Playerare .Unfeild {
     display: flex;
     background-color: none;
     color: rgb(186 194 208);
@@ -57,13 +57,13 @@
 }
 
 
-.Player h3 {
+.Playerare h3 {
     margin: 5px;
     font-size: 20px;
     width: 170px;
 }
 
-.Player p {
+.Playerare p {
     margin-left: 150px;
     font-size: 20px;
 }

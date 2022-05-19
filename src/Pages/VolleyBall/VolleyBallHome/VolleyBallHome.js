@@ -5,8 +5,6 @@ import Navigation from '../../Shared/Navigation/Navigation';
 import VolleyBallBanner from '../VolleyBallBanner/VolleyBallBanner';
 import VolleyBallMatch from '../VolleyBallMatch/VolleyBallMatch';
 import VolleyBallPlayers from '../VolleyBallPlayers/VolleyBallPlayers';
-import VolleyBallLeague from '../VolleyBallLeague/VolleyBallLeague';
-import VolleyBallMatchTema from '../VolleyBallMatchTema/VolleyBallMatchTema';
 import VolleyBallSlider from '../VolleyBallSlider/VolleyBallSlider';
 
 const VolleyBallHome = () => {
@@ -16,9 +14,7 @@ const VolleyBallHome = () => {
             <VolleyBallBanner />
             <VolleyBallMatch />
             <BookingTactk />
-            <VolleyBallPlayers />
-            <VolleyBallLeague />
-            <VolleyBallMatchTema />
+            <VolleyBallPlayers />           
             <VolleyBallSlider />
             <Footer />
         </div>
