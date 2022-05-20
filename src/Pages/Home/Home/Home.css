@@ -1,0 +1,10 @@
+.MessageIcon {
+    color: white;
+    font-size: 80px !important;
+    cursor: pointer;
+    border: 2px solid white;
+    border-radius: 15px;
+    padding: 5px;
+    transition: .8s;
+}
+

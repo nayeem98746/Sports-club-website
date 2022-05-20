@@ -138,10 +138,11 @@ const githubsignIn = () => {
 
 
     // logOut function
-    const logOut = () =>{
+    const logOut = (navigate) =>{
         setIsLoading(true)
         signOut(auth).then(() => {
             setUser(null)
+            navigate('/')
           }).catch((error) => {
             setAuthError( error.message )
           }).finally(() => setIsLoading(false))

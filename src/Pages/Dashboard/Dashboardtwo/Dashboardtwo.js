@@ -16,7 +16,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import useAuth from '../../../Hook/UseAuth';
@@ -32,6 +32,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 const drawerWidth = 240;
 
 function Dashboardtwo(props) {
+  const navigate = useNavigate()
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const {admin , logOut } = useAuth()
@@ -95,11 +96,11 @@ function Dashboardtwo(props) {
                         <span>Contest</span>
                     </li>
                     </Link>
-                 <Link to={`/dashboard2/profile`}>   <li  className='dashboard-li'>
+                 {/* <Link to={`/dashboard2/profile`}>   <li  className='dashboard-li'>
                         <LogoutIcon className='icon' />
                         <span>Profile</span>
-                        </li></Link>
-                    <li onClick={logOut} className='dashboard-li'>
+                        </li></Link> */}
+                    <li onClick={()=> logOut(navigate)} className='dashboard-li'>
                         <LogoutIcon className='icon' />
                         <span>Logout</span>
                         </li>
