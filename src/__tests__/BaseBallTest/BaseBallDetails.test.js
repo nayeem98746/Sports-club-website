@@ -33,9 +33,9 @@ describe("BaseBallDetails", () => {
     expect(baseballDetailsBox).toBeInTheDocument()
   });
 
-  it("should give an alert to require all fields",()=>{
-    const testSubmitData = {email:"abc@gmail.com",name:"Alif",feedback:5,PlayerName:"messi"}
-    render(<BaseBallDetails></BaseBallDetails>)
-    const reviewBtn = screen.getByTestId(/comment-submit/i);
-  })
+  // it("should give an alert to require all fields",()=>{
+  //   const testSubmitData = {email:"abc@gmail.com",name:"Alif",feedback:5,PlayerName:"messi"}
+  //   render(<BaseBallDetails></BaseBallDetails>)
+  //   const reviewBtn = screen.getByTestId(/comment-submit/i);
+  // })
 });

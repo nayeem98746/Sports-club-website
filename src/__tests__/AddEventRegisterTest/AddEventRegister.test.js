@@ -88,6 +88,7 @@ describe("AddEventRegister",()=>{
         await act(()=>{
             render(<AddEventRegister></AddEventRegister>)
         })
+        
         const element = await screen.getByTestId(`approve-ticket-${fakeResponse[0]._id}`)
         expect(element).toBeInTheDocument();
         expect(element).toHaveTextContent(/Approve/i);
@@ -102,6 +103,7 @@ describe("AddEventRegister",()=>{
         const mockAprRes = {json: jest.fn().mockResolvedValueOnce(fakeAprRes)};
         const mockAprFetch = jest.fn().mockResolvedValueOnce(mockAprRes);
         (global).fetch = mockAprFetch;
+        
         // problem in main function, the function is deleting the data insted of update the approve status
         
 
