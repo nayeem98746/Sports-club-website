@@ -37,24 +37,25 @@ const Payment = () => {
     
     const purchase = () => {
       const order = {
-          cus_name:user?.displayName,
-          cus_email:user?.email,
-          product_name:users?.name,
-          product_profile:users?.description1,
-          product_image:users?.img,
-          total_amount:users?.price,
-        }
-        // console.log(order)
+        cus_name:user?.displayName,
+        cus_email:user?.email,
+        product_name:users?.name,
+        product_profile:users?.description1,
+        product_image:users?.img,
+        total_amount:users?.price,
+      }
+        console.log(order)
         fetch(`http://localhost:5000/init`, {
           method:'POST',
           headers:{
-            "content-type": "application/json"
+            "content-type" : "application/json"
           },
-          body:JSON.stringify(order)
+          body: JSON.stringify(order)
         })
         .then(res => res.json())
-        .then(data => {
-          console.log(data)
+        .then(data =>{
+          window.location.replace(data)
+
         })
         
   }
@@ -62,12 +63,15 @@ const Payment = () => {
 
         <>
            {/* <Navigation></Navigation>  */}
-            <h2>this is payment {productId}</h2>
+           <div >
+           <img width='300px' src={users?.img} alt="" />
+            {/* <h2>this is payment {productId}</h2> */}
             <h3>pay : {users?.price}</h3>
             <h3>pay : {users?.name}</h3>
-            <img src={users?.img} alt="" />
+           
             <button onClick={purchase} style={{color:'whitesmoke', padding:'20px' , borderRadius:'10px' , background:'black'}}  >CheckOut-Payment</button>
             
+           </div>
         
           
         </>

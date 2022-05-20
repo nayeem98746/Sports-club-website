@@ -31,9 +31,9 @@ const Navigation = () => {
                 fontSize: "22px",
                 marginBottom: "7px",
                 fontWeight: "600",
-                color: "#dc3545 !important ",
+                color: "white !important ",
               }}
-              title="PAGES"
+              title="SPORTS"
               id="basic-nav-dropdown"
             >
               <NavDropdown.Item as={Link} to="/football">
