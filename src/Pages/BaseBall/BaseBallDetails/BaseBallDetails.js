@@ -74,7 +74,7 @@ const BaseBallDetails = () => {
   };
 
   const dispatch = useDispatch();
-  const handelonSubmit = (data) => {
+ const handelonSubmit = (data) => {
     data.preventDefault();
     orderinfo.PlayerName = sinleTaTanis?.name;
     const newDispalyReviwe = {
@@ -122,7 +122,7 @@ const BaseBallDetails = () => {
     <>
       <Navigation />
       <>
-        <div className="details-player-main">
+        <div className="details-player-main" data-testid="baseballDetails-box">
           <div className="details-player-bgimg"></div>
           <Container className="details-player-info">
             <div>
@@ -564,6 +564,7 @@ const BaseBallDetails = () => {
                 border: "none",
                 padding: "10px 10px",
               }}
+              data-testid="comment-submit"
             >
               Submit <IosShareIcon />
             </Button>

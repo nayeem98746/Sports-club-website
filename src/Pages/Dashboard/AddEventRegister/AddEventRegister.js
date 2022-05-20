@@ -50,7 +50,7 @@ const AddEventRegister = () => {
 
 
     return (
-        <div>
+        <div data-testid="AddEventRegisterID">
           <h1 style={{margin: "50px" ,color:'#ffffff', marginLeft:'0'}}>All Event Register</h1>
            <Table striped bordered hover variant="white">
   <thead>
@@ -68,7 +68,7 @@ const AddEventRegister = () => {
   </thead>
   {
     ticket.map((pd, index) => (   
-      <tbody>
+      <tbody data-testid={`event-book-${index}`}>
       <tr>
       <td style={{color:'white'}}>{index}</td>
       <td style={{color:'white'}} className='th-display-block'>{pd.StartDate}</td>
@@ -78,8 +78,8 @@ const AddEventRegister = () => {
       <td style={{color:'white'}}>{pd.number}</td>
       <td style={{color:'white'}} className='th-display-block'>{pd.city}</td>
       <td style={{color:'white'}} className='th-display-block'>{pd.address}</td>
-      <button onClick={()=> handleDelete(pd._id)} className="btn bg-danger text-white  p-2">Delete</button>
-{pd.status === "pending" ? <button onClick={()=> handleApprove(pd._id)} className="btn  bg-danger p-2">Approve</button>: <span><AddTaskIcon style={{
+      <button onClick={()=> handleDelete(pd._id)} className="btn bg-danger text-white  p-2" data-testid={`book-del-${pd._id}`}>Delete</button>
+{pd.status === "pending" ? <button onClick={()=> handleApprove(pd._id)} className="btn  bg-danger p-2" data-testid={`approve-ticket-${pd._id}`}>Approve</button>: <span><AddTaskIcon style={{
   color: "dc3545", fontSize: "20px"
 }} /></span>}
       
@@ -91,7 +91,7 @@ const AddEventRegister = () => {
 </Table>
         </div>
     );
-
+/*
   return (
     <div data-testid="AddEventRegisterID">
       <h1 style={{ margin: "50px" }}>All Event Register {ticket.length}</h1>
@@ -152,7 +152,7 @@ const AddEventRegister = () => {
       </Table>
     </div>
   );
-
+  */
 };
 
 export default AddEventRegister;
