@@ -45,7 +45,7 @@ const Payment = () => {
         total_amount:users?.price,
       }
         console.log(order)
-        fetch(`http://localhost:5000/init`, {
+        fetch(`https://floating-thicket-25144.herokuapp.com/init`, {
           method:'POST',
           headers:{
             "content-type" : "application/json"
