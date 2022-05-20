@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Card, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import logo from '../../Images/next match/champions-league-logo-removebg-preview.png';
+import logo from '../../Images/next match/UEFA-Champions-League-Logo-PNG-White-1024x939.png';
 import img2 from '../../Images/iconCricket/australia.png';
 import img4 from '../../Images/iconCricket/new-zealand.png';
 import img5 from '../../Images/iconCricket/pakistan.png';
@@ -200,19 +200,19 @@ const NextMathTimer = () => {
         <div className="Player">
             <div className="Nmbers">
 
-            <h5 style={{marginRight: "15px"}}>01</h5>
+            <h5 style={{marginRight: "15px"}}>02</h5>
             </div>
 
             <div className="TextPlayer">
-            <h5>Lional Massi</h5>
-            <h5>Argentena</h5>
+            <h5>Cristiano R. </h5>
+            <h5>Portugal</h5>
 
             </div>
         </div>
         
-        <h5>PSG</h5>
+        <h5>Real</h5>
         <h5>RW</h5>
-        <h5>93</h5>
+        <h5>92</h5>
     </div>
 
 
@@ -221,19 +221,19 @@ const NextMathTimer = () => {
         <div className="Player">
             <div className="Nmbers">
 
-            <h5 style={{marginRight: "15px"}}>01</h5>
+            <h5 style={{marginRight: "15px"}}>03</h5>
             </div>
 
             <div className="TextPlayer">
-            <h5>Lional Massi</h5>
-            <h5>Argentena</h5>
+            <h5>Xavi simons	</h5>
+            <h5>Spain</h5>
 
             </div>
         </div>
         
-        <h5>PSG</h5>
+        <h5>FC</h5>
         <h5>RW</h5>
-        <h5>93</h5>
+        <h5>89</h5>
     </div>
 
 

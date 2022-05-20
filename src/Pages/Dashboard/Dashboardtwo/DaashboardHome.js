@@ -25,7 +25,7 @@ const DaashboardHome = () => {
    const socketRef = useRef();
   
     useEffect( () => {
-      socketRef.current = io("http://localhost:7000");
+      socketRef.current = io("https://blooming-thicket-66783.herokuapp.com");
       socketRef.current.on("chatMessage", (data)=>{
         console.log(data);
         
@@ -33,7 +33,7 @@ const DaashboardHome = () => {
     } ,[])
   
     useEffect( () => {
-      socketRef.current = io("http://localhost:7000");
+      socketRef.current = io("https://blooming-thicket-66783.herokuapp.com");
       socketRef.current.on("getMessage", (data)=>{
         setAnsMessage(data.ans);
         

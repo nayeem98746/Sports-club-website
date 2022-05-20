@@ -8,7 +8,6 @@ import Booking from "./Pages/Booking/Booking";
 import AuthProvider from "./Pages/context/AuthProvider/AuthProvider";
 import CricketHome from "./Pages/Cricket/CricketHome/CricketHome";
 import AddProduct from "./Pages/Dashboard/AddProduct/AddProduct";
-import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import EventRegister from "./Pages/EventRegister/EventRegister";
 import FootBallHome from "./Pages/Football/FootBallHome/FootBallHome";
 import HockeyPuckHome from "./Pages/HockeyPuck/HockeyPuckHome/HockeyPuckHome";
@@ -40,7 +39,6 @@ import PlayerDetails from "./Pages/PlayerDetails/PlayerDetails";
 
 
 import PrivateRoute from "./Pages/PrivateRoute/PrivateRoute";
-
 import ShopData from "./Pages/Dashboard/ShopData/ShopData";
 import Payment from "./Pages/Dashboard/Payment/Payment";
 import UpComeingContest from "./Pages/Contest/UpComeingContest";

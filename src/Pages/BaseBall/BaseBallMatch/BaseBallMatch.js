@@ -5,13 +5,12 @@ import img1 from '../../../Images/iconCricket/australia.png';
 import img3 from '../../../Images/iconCricket/india.png';
 import { default as img2, default as img4 } from '../../../Images/iconCricket/new-zealand.png';
 import img5 from '../../../Images/iconCricket/pakistan.png';
-import logo from '../../../Images/next match/champions-league-logo-removebg-preview.png';
+import logo from '../../../Images/next match/UEFA-Champions-League-Logo-PNG-White-1024x939.png';
 import BaseBallVideoSlider from '../BaseBallVideoSlider/BaseBallVideoSlider';
 import './BaseBallMatch.css';
 
 const BaseBallMatch = () => {
-    const date = new Date().toLocaleDateString();
-    const time = new Date().toLocaleTimeString();
+    
 
 
     return (

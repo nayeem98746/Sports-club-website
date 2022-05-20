@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Card, Col } from 'react-bootstrap';
-import logo from '../../../Images/next match/champions-league-logo-removebg-preview.png';
+import logo from '../../../Images/next match/UEFA-Champions-League-Logo-PNG-White-1024x939.png';
 import img2 from '../../../Images/iconCricket/australia.png';
 import img4 from '../../../Images/iconCricket/new-zealand.png';
 import img5 from '../../../Images/iconCricket/pakistan.png';
@@ -11,9 +11,7 @@ import { Link } from 'react-router-dom';
 import BasketBallVideoSlider from '../BasketBallVideoSlider/BasketBallVideoSlider';
 
 const BasketBallMatch = () => {
-    const date = new Date().toLocaleDateString();
-    const time = new Date().toLocaleTimeString();
-
+ 
 
     return (
         <div  className="container ">

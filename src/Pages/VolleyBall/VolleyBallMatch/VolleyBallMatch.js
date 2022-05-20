@@ -6,7 +6,7 @@ import img4 from '../../../Images/iconCricket/new-zealand.png';
 import img5 from '../../../Images/iconCricket/pakistan.png';
 import img1 from '../../../Images/iconHockey/china.png';
 import img3 from '../../../Images/iconHockey/united-states.png';
-import logo from '../../../Images/next match/champions-league-logo-removebg-preview.png';
+import logo from '../../../Images/next match/UEFA-Champions-League-Logo-PNG-White-1024x939.png';
 import VolleyBallVideoSlider from '../VolleyBallVideoSlider/VolleyBallVideoSlider';
 
 

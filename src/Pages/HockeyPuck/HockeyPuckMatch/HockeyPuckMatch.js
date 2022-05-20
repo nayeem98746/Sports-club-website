@@ -6,13 +6,12 @@ import img2 from '../../../Images/iconHockey/china.png';
 import img5 from '../../../Images/iconHockey/indonesia.png';
 import img4 from '../../../Images/iconHockey/mexico.png';
 import img3 from '../../../Images/iconHockey/south-africa.png';
-import logo from '../../../Images/next match/champions-league-logo-removebg-preview.png';
+import logo from '../../../Images/next match/UEFA-Champions-League-Logo-PNG-White-1024x939.png';
 import BasketBallVideoSlider from '../../BasketBall/BasketBallVideoSlider/BasketBallVideoSlider';
 import './HockeyPuckMatch.css';
 
 const HockeyPuckMatch = () => {
-    const date = new Date().toLocaleDateString();
-    const time = new Date().toLocaleTimeString();
+    
 
 
     return (

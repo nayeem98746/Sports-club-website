@@ -1,4 +1,5 @@
 import React from 'react';
+import MenuIcon from '@mui/icons-material/Menu';
 import DoDisturbOnIcon from '@mui/icons-material/DoDisturbOn';
 import LinearScaleIcon from '@mui/icons-material/LinearScale';
 import PersonIcon from '@mui/icons-material/Person';
@@ -26,15 +27,12 @@ const Message = ({setIsConnect,hendlaMessage, AllMessage,setMessageValu}) => {
 
     return (
         <div  className="Message">
-         
-
-
             <div className='ChatMessage'>
 
                 <div className="Header">
-                    <div>   <LinearScaleIcon className="Header_Icon" /></div>
+                    <div>   <MenuIcon className="Header_Icone" /></div>
                     <div className="Header_Text"><p>Sports Club</p></div>
-                    <div style={{textAlign: "right"}}> <DoDisturbOnIcon className="Header_Icon" onClick={() => setIsConnect(false)} /> </div>
+                    <div style={{textAlign: "right"}}> <DoDisturbOnIcon className="Header_Icone" onClick={() => setIsConnect(false)} /> </div>
                 </div>
            
                 <div className='Chat'>
@@ -69,7 +67,7 @@ const Message = ({setIsConnect,hendlaMessage, AllMessage,setMessageValu}) => {
                 <div className="InputBox">
             <input placeholder='write a message' onKeyUp={e=>{hendlaMessage(e);setMessageValu(e.target.value)}} type="text" />
             
-            <SendIcon className="Header_Icon" />
+            <SendIcon className="Header_Send" />
 
             <p style={{color: "#000", textAlign: "center", marginTop: "10px"}}>Place today place tomorrow</p>
 
