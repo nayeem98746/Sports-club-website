@@ -49,12 +49,15 @@
 }
 .cart-btn{
    padding: 15px 36px;
-   background: #e40046;
+   background: #ffffff;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
    border:none;
-   color: #fff;
+   color: black;
    cursor: pointer;
    font-size: 18px;
    font-weight: 600;
+   border-radius: 10px;
+   margin-left: 10px;
 }
 .modal-btn{
    padding: 8px 26px;

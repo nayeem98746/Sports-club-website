@@ -1,0 +1,227 @@
+ .chat-container {
+  width: 1020px;
+  margin: 0 auto;
+} 
+.chatHeadLine h3 {
+  display: block;
+  font-size: 26px;
+  color: #ffffff;
+  margin: 1.5rem;
+}
+.message-inbox {
+  border-right: 1px solid #eaeaea;
+  background-color: #ffffff;
+}
+.messages-inbox ul li a {
+  position: relative;
+  display: block;
+  padding: 30px;
+}
+.message-headLine {
+  max-height: 82px;
+  font-size: 16px;
+  margin: 0;
+  padding: 22px 30px;
+  color: #333;
+  background-color: #fff;
+  display: block;
+  border-bottom: 1px solid #eaeaea;
+  border-radius: 4px 4px 0 0;
+}
+.message-headLine input {
+  background-color: #f6f6f6;
+  box-shadow: none;
+  height: 38px;
+  padding: 14px;
+  font-size: 14px;
+  margin: 0;
+  border: none;
+}
+.status-icon {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  background-color: #c0c0c0;
+  bottom: 0;
+  right: 0;
+  display: block;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 3px rgb(0 0 0 / 30%);
+  border-radius: 50%;
+}
+.message-avatar img {
+  height: 40px;
+  weight: 40px;
+  border-radius: 50%;
+}
+.message-box li {
+  margin-top: 10px;
+  padding: 8px;
+}
+.messages-inbox .message-by {
+  margin-left: 60px;
+}
+.message-box li a {
+  text-decoration: none;
+  list-style: none;
+}
+.message-by-headline h5 {
+  font-size: 14px;
+  margin-bottom: 3px;
+  color: #333;
+  max-width: 160px;
+  line-height: 23px;
+  font-weight: 600;
+  margin: 0 0 7px 0;
+  padding: 0;
+}
+.message-by-headline span {
+  float: right;
+  color: #888;
+  font-size: 14px;
+  float: right;
+}
+.message-by p {
+  height: 26px;
+  max-width: 205px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 14px;
+  color: #888;
+  margin-left: 13px;
+}
+
+.messages-headline h4 {
+  font-size: 16px;
+  color: #ffffff;
+  padding: 6px 0;
+  margin: 0;
+  font-weight: 600;
+  display: inline-block;
+}
+.message-inbox-headLine {
+  max-height: 82px;
+  font-size: 16px;
+  margin: 0;
+  padding: 22px 30px;
+  color: #333;
+  background-color: #fff;
+  display: block;
+  border-bottom: 1px solid #eaeaea;
+}
+.message-action a {
+  font-size: 13px;
+  color: #666;
+  font-weight: 500;
+  display: inline-block;
+  transition: 0.3s;
+  color: #666;
+  padding: 0;
+  top: 50%;
+  right: 30px;
+  text-decoration: none;
+}
+
+.message-time-sign {
+  text-align: center;
+  display: block;
+  position: relative;
+  margin-bottom: 25px;
+}
+.message-time-sign span {
+  background-color: #fff;
+  font-size: 14px;
+  color: #888;
+  z-index: 11;
+  position: relative;
+  padding: 0 10px;
+}
+.message-bubble {
+  display: block;
+  position: relative;
+  margin-bottom: 25px;
+}
+.message-bubble.me .message-avatar {
+  left: 0;
+  right: auto;
+  height: 50px;
+  weight: 50px;
+}
+.message-text {
+  background-color: #2a41e8;
+}
+.message-text p {
+  font-size: 15px;
+  padding: 0;
+  margin: 0;
+  line-height: 25px;
+}
+.message-avatar {
+  margin-right: 15px;
+}
+.message-text::before {
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 6px solid #66676b;
+  border-right: none;
+  right: -6px;
+  left: auto;
+}
+.message-bubble-container {
+  background-color: #ffffff;
+}
+.message-bubble .message-text {
+  margin-left: 70px;
+  border-radius: 4px;
+  padding: 12px 18px;
+  position: relative;
+  display: inline-block;
+  float: left;
+  line-height: 25px;
+}
+.message-bubble-inner{
+  margin-bottom: 25px;
+}
+.message-bubble .message-text-2 {
+  background-color: #f4f4f4;
+  border-radius: 4px;
+  padding: 12px 18px;
+  position: relative;
+  display: inline-block;
+  float: left;
+  line-height: 25px;
+  color: #666;
+}
+.message-reply textarea {
+    min-width: auto;
+    height: 48px;
+    min-height: 48px;
+    padding: 10px 0;
+    margin: 0 15px 0 0;
+    flex: 1;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 26px;
+    box-shadow: none;
+    border: none;
+    box-sizing: border-box;
+    resize: none;
+  
+}
+.message-reply button {
+    border-radius: 4px;
+    flex: auto;
+    flex-grow: 0;
+    height: 44px;
+    text-align: center;
+    align-self: center;
+    padding: 0 25px;
+    background-color: #2a41e8;
+    color: white;
+    border: none;
+}
+.message-reply textarea:focus{
+  outline: 0;
+}

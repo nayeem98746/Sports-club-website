@@ -47,6 +47,7 @@ import UpComeingContest from "./Pages/Contest/UpComeingContest";
 import Dashboardtwo from "./Pages/Dashboard/Dashboardtwo/Dashboardtwo";
 import CheckOut from "./Pages/CheckOut/CheckOut";
 import Profile from "./Pages/Profile/Profile";
+import ChatApp from "./Pages/Home/ChatApp/ChatApp";
 
 
 function App() {
@@ -62,7 +63,7 @@ function App() {
             <Route path="/baseBall" element={<BaseBallHome />} />
             <Route path="/basketBall" element={<BasketBallHome />} />
             <Route path="/volleyBall" element={<VolleyBallHome />} />
-
+            <Route path="/chatApp" element={<ChatApp />} />
             <Route path="/home" element={<Home />} />
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
