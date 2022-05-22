@@ -92,8 +92,8 @@ const BaseBallDetails = () => {
       return;
     }
 
-    // fetch("https://enigmatic-garden-34025.herokuapp.com/review", {
-    fetch("http://localhost:7000/review", {
+    fetch("https://enigmatic-garden-34025.herokuapp.com/review", {
+    // fetch("http://localhost:7000/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",
