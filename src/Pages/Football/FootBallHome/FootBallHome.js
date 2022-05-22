@@ -6,8 +6,7 @@ import Footer from "../../Shared/Footer/Footer";
 import Navigation from "../../Shared/Navigation/Navigation";
 import Banner from "../Banner/Banner";
 import BookingTactk from "../BookingTactk/BookingTactk";
-import FootBallLeague from "../FootBallLeague/FootBallLeague";
-import FootBallMatch from "../FootBallMatch/FootBallMatch";
+
 
 const FootBallHome = () => {
   return (
@@ -15,10 +14,8 @@ const FootBallHome = () => {
       <Navigation />
       <Banner />
       <NextMathTimer />
+      <ControledSlider />      
       <BookingTactk />
-      <ControledSlider />
-      <FootBallLeague />
-      <FootBallMatch />
       <CountSlider />
       <Footer />
     </div>

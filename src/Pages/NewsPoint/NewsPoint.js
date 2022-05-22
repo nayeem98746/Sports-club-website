@@ -1,14 +1,15 @@
+import React from 'react';
+import { Link, useNavigate} from 'react-router-dom';
+import {  Button, Container, Modal } from 'react-bootstrap';
+import images from '../../Images/News/72752f5719a50f923ecc500d8138d343.jpg';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import StarBorderPurple500Icon from '@mui/icons-material/StarBorderPurple500';
-import React, { useEffect, useState } from 'react';
-import { Button, Container, Modal } from 'react-bootstrap';
-import { IconContext } from "react-icons";
-import { FcRules } from 'react-icons/fc';
-import { Link, useNavigate } from 'react-router-dom';
 import TableImages from '../../Images/istockphoto-518118714-170667a.jpg';
-import images from '../../Images/News/72752f5719a50f923ecc500d8138d343.jpg';
-import './NewsPoint.css';
 
+import { Table } from 'react-bootstrap';
+import { useState, useEffect } from "react";
+import { FcRules } from 'react-icons/fc';
+import { IconContext } from "react-icons";
 
 
 
@@ -24,9 +25,6 @@ const NewsPoint = () => {
 
 
     const navigate = useNavigate()
-
-
-
     
     const [event, setEvent] = useState([])
 

@@ -31,9 +31,9 @@ const Navigation = () => {
                 fontSize: "22px",
                 marginBottom: "7px",
                 fontWeight: "600",
-                color: "#dc3545 !important ",
+                color: "#000",
               }}
-              title="PAGES"
+              title="SPORTS"
               id="basic-nav-dropdown"
             >
               <NavDropdown.Item as={Link} to="/football">
@@ -72,7 +72,7 @@ const Navigation = () => {
 
             {user?.email ? (
               <div className="d-flex">
-                <Nav.Link className="link-style" as={Link} to="/dashboard2">
+                <Nav.Link className="link-style" as={Link} to="/dashboard2/home">
                   <h5 className="text-style">DASHBOARD</h5>
                 </Nav.Link>
                 <h5

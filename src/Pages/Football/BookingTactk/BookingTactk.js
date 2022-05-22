@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Container} from 'react-bootstrap';
 import './BookingTactk.css';
 import { Link } from 'react-router-dom';
+import image from '../../../Images/UPCOMINGEVENTS/360_F_377862753_rc1sOZWvNSfSwz9sgfP9JThzk0WdwLJe.jpg';
 
 const BookingTactk = () => {
     return (
@@ -11,14 +12,14 @@ const BookingTactk = () => {
                 <div className="BookingPart">
                         <div className="Text">
                         <h1>Why are you still waiting?</h1>
-                    <p>Our <span style={{color: "#E71E68"}} >TICKET BOOKING OPENS NOW </span></p>
+                    <p>Our <span style={{color: "rgb(19 7 62)"}} >Upcoming New Events  </span>Open Now</p>
                         </div>
                         
                         <div className="Bottun">
-                            <Link to="/booking" > <Button style={{background: "#E71E68", color: "#FFF", padding: "10px", border: "0px", marginTop: "20px"}}>TICKET BOOKING</Button></Link>
+                            <Link to="/contestsregister" > <Button style={{background: "#E71E68", color: "#FFF", padding: "10px", border: "0px", marginTop: "20px"}}>Upcoming New Events </Button></Link>
                         </div>
                         <div className="Number">
-                            <h2><span style={{color: "#E71E68", marginTop: "0px", display: "block"}} >25 </span> March 2022</h2>
+                             <img style={{width: '300px', borderRadius: "10px"}} src={image} alt="" />
                         </div>
                 </div>
 

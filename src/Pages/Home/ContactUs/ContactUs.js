@@ -31,7 +31,7 @@ const ContactUs = () => {
       }
   
       fetch("https://blooming-thicket-66783.herokuapp.com/player/sendEmail",{
-      // fetch("http://localhost:7000/player/sendEmail",{
+      // fetch("https://blooming-thicket-66783.herokuapp.com/player/sendEmail",{
         method:"POST",
         headers:{
           "content-type":"application/json"

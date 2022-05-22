@@ -90,8 +90,7 @@ const ContestResult = () => {
         <div style={{display:"flex", flexDirection:"column",justifyContent:"center", alignItems:"center", marginTop:"30px"}} data-testid="result-table">
             <h2 style={{backgroundColor:"#9A61EC", width:"70%", textAlign:"center", padding:"20px 3px",margin:"10px 0 50px 0",borderRadius:"8px", color:"white",boxShadow:"0 0 6px 6px", textShadow:"5px 5px 12px blue"}}>Contest Result</h2>
 
-        <div style={{display:"flex", flexDirection:"column",justifyContent:"center", alignItems:"center", marginTop:"30px"}}>
-            <h2 className='contest-title' style={{backgroundColor:"#9A61EC", width:"70%", textAlign:"center", padding:"20px 3px",margin:"10px 0 50px 0",borderRadius:"8px", color:"white",boxShadow:"0 0 6px 6px", textShadow:"5px 5px 12px blue"}}>Contest Result</h2>
+            
 
             <div style={{display:"block",width:"90%"}}>
                 <div className='context-result-main-table' style={{borderTop:"2px solid",borderLeft:"2px solid",padding:"30px 30px 50px 30px", borderRadius:"10px",boxShadow:"0 0 3px 0", marginBottom:"20px"}}>
@@ -156,8 +155,8 @@ const ContestResult = () => {
                     </table>
                 </div>
             </div>
-        </div>
-        </div>
+            </div>
+        
     );
 };
 

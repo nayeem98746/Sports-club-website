@@ -1,0 +1,131 @@
+.Textcenter {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+
+.TableImages {
+    position: absolute;
+    top: -54px;
+    left: -70px;
+}
+
+
+.NextFootballMatchs{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    color: aliceblue;
+}
+
+
+.UpcameingMatch{
+    width: 100%;
+    margin-left: auto;
+}
+
+
+
+
+
+.MatchListItam ul li{
+    line-height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all linear .4s;
+}
+
+
+
+
+
+
+.ManiRainking{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+
+.Renking{
+    width: 100%;
+    border: 2px solid rgb(66, 39, 163);
+    padding: 30px;
+}
+
+
+
+.CountryRank{
+    width: 100%;
+    border: 2px solid rgb(134 50 233);
+    padding: 30px;
+}
+
+
+
+.SingleItam{
+    display: flex;
+    align-items: center !important;
+    justify-content: space-evenly !important;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+
+.SinglePlayer {
+    display: flex;
+    align-items: center !important;
+    justify-content: space-evenly !important;
+    margin-top: 10px;
+    border: 1px solid rgb(52 24 180);
+    padding: 5px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.Player{
+    display: flex;
+    align-items: center !important;
+    justify-content: space-evenly !important;
+    margin-left: -40px; 
+
+
+}
+
+
+
+.CountryAll{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 30px;
+    margin-bottom: 20px;
+
+}
+
+
+
+.CountrySAre {
+    display: flex;
+    align-items: center !important;
+    justify-content: space-between !important;
+    border: 1px solid rgb(146 52 245);
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+
+
+.CountryRnk{
+    display: flex;
+}
+
+
+
+.CountryText{
+    display: flex;
+    align-items: center !important;
+    justify-content: space-between !important;
+}

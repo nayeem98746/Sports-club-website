@@ -8,7 +8,6 @@ import Booking from "./Pages/Booking/Booking";
 import AuthProvider from "./Pages/context/AuthProvider/AuthProvider";
 import CricketHome from "./Pages/Cricket/CricketHome/CricketHome";
 import AddProduct from "./Pages/Dashboard/AddProduct/AddProduct";
-import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import EventRegister from "./Pages/EventRegister/EventRegister";
 import FootBallHome from "./Pages/Football/FootBallHome/FootBallHome";
 import HockeyPuckHome from "./Pages/HockeyPuck/HockeyPuckHome/HockeyPuckHome";
@@ -40,16 +39,21 @@ import PlayerDetails from "./Pages/PlayerDetails/PlayerDetails";
 
 
 import PrivateRoute from "./Pages/PrivateRoute/PrivateRoute";
-
 import ShopData from "./Pages/Dashboard/ShopData/ShopData";
 import Payment from "./Pages/Dashboard/Payment/Payment";
 import UpComeingContest from "./Pages/Contest/UpComeingContest";
 import Dashboardtwo from "./Pages/Dashboard/Dashboardtwo/Dashboardtwo";
 import CheckOut from "./Pages/CheckOut/CheckOut";
 import Profile from "./Pages/Profile/Profile";
+import DaashboardHome from "./Pages/Dashboard/Dashboardtwo/DaashboardHome";
 
 
 function App() {
+
+  
+
+  
+
   return (
     <div>
       <AuthProvider>
@@ -90,6 +94,7 @@ function App() {
             {/* dashboardtwo  */}
             <Route path="/dashboard2" element={<Dashboardtwo />} >
             <Route path={`/dashboard2/addproduct`} element={<AddProduct></AddProduct>} />
+            <Route path={`/dashboard2/home`} element={<DaashboardHome></DaashboardHome>} />
             <Route path={`/dashboard2/addadmin`} element={<AddAdmin></AddAdmin>} />
            <Route path={`/dashboard2/addreview`} element={<AddReview></AddReview>} />
             <Route path={`/dashboard2/addticketbooking`} element={<AddTicketBooking></AddTicketBooking>} />
