@@ -35,7 +35,8 @@
     "sass": "^1.50.0",
     "socket.io-client": "^4.5.0",
     "swiper": "^8.0.7",
-    "typewriter-effect": "^2.18.2"
+    "typewriter-effect": "^2.18.2",
+    "vanilla-tilt": "^1.7.2"
   },
   "scripts": {
     "start": "react-scripts start",

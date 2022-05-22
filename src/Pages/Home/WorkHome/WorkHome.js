@@ -12,11 +12,17 @@ import {
   } from "@fortawesome/free-solid-svg-icons";
 import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import VanillaTilt from 'vanilla-tilt';
 
 
 
 
 const WorkHome = () => {
+
+    VanillaTilt.init(document.querySelectorAll(".WorkHomeAll"), {
+		max: 25,
+		speed: 10
+	});
     return (
         <Container>
         <div className='WorkHome'>
@@ -26,7 +32,7 @@ const WorkHome = () => {
 
             <div className='WorkHomeMain'>
 
-        <div>
+        <div className='WorkHomeAll'>
             <Link style={{textDecoration: "none", color: "#000"}} to='/football'>
         <div className="WorkText">
         <div className="WorkShap"></div>
@@ -38,7 +44,7 @@ const WorkHome = () => {
         </div>
 
 
-        <div >
+        <div className='WorkHomeAll'>
         <Link style={{textDecoration: "none", color: "#000"}} to='/cricket'>
         <div className="WorkText">
         <div className="WorkShap"></div>
@@ -51,7 +57,7 @@ const WorkHome = () => {
 
 
         
-        <div>
+        <div className='WorkHomeAll'>
         <Link style={{textDecoration: "none", color: "#000"}} to='/tableTennis'>
         <div className="WorkText">
         <div className="WorkShap"></div>  
@@ -63,7 +69,7 @@ const WorkHome = () => {
         </Link>
          </div>
 
-         <div >
+         <div className='WorkHomeAll'>
 
          <Link style={{textDecoration: "none", color: "#000"}} to='/baseBall'>
         <div className="WorkText">
@@ -77,7 +83,7 @@ const WorkHome = () => {
          </div>
 
 
-         <div>
+         <div className='WorkHomeAll'>
          <Link style={{textDecoration: "none", color: "#000"}} to='/basketBall'>
         <div className="WorkText"> 
         <div className="WorkShap"></div>
@@ -91,7 +97,7 @@ const WorkHome = () => {
         </Link>
          </div>
 
-         <div>
+         <div className='WorkHomeAll'>
          <Link style={{textDecoration: "none", color: "#000"}} to='/volleyBall'>
         <div className="WorkText">  
         <div className="WorkShap"></div>
