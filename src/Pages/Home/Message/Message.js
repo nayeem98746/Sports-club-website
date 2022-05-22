@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import DoDisturbOnIcon from '@mui/icons-material/DoDisturbOn';
-import LinearScaleIcon from '@mui/icons-material/LinearScale';
-import PersonIcon from '@mui/icons-material/Person';
-import SendIcon from '@mui/icons-material/Send';
-import "./Message.css";
 import useAuth from '../../../Hook/UseAuth';
-import logo from '../../../Images/Chat/sports.png';
+import "./Message.css";
+
 
 
 const Message = ({setIsConnect,hendlaMessage, AllMessage,setMessageValu}) => {
+
+
+    const [isContall, setIsContall] = useState(true);
+
+
 
     //   console.log(ansMessage);
 
@@ -26,55 +28,218 @@ const Message = ({setIsConnect,hendlaMessage, AllMessage,setMessageValu}) => {
       console.log(dateString);
 
     return (
-        <div  className="Message">
-            <div className='ChatMessage'>
+        <div  className="ChatMain">
+                   <div className="chatHeadLine">
+                           <h3>Message</h3>
+                  </div>
 
-                <div className="Header">
-                    <div>   <MenuIcon className="Header_Icone" /></div>
+                  <div className="chat-container bg-white">
+
+                  <div className="d-flex message-heading">
+
+                  { isContall ?
+
+<div className="message-inbox me-3">
+                  <div className=" pe-4">
+
+                  <div className="message-headLine">                
+             
+                  <div>
+                  <input  type="text" placeholder="Search"/>
+                  <i class="icon-material-outline-search"> </i>
+                  </div>
+                  </div>
+
+            
+                  
+                 
+                  <div>
+                  <ul className="message-box">
+                  <li>
+                           <a href="#">
+                  <div className="d-flex">
+                           <div className="message-avatar">
+                           <i class="status-icon status-online"></i>
+                           <img src="https://i.ibb.co/JHDmPbQ/user-avatar-small-03.jpg" alt="" />
+                  </div>
+                  <div className="message-by-headline text-center">
+                  <div>
+                  <span className="ms-3">4 hours ago</span>
+                  <h5 className="ms-2">David Peterson</h5>
+                  </div>
+                  <div  className="message-by">
+                  <p>Thanks for reaching out. I'm quite busy right now on many</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div> 
+                  
+                  </div>
+                  </a>
+         </li>
+         <li>
+                           <a href="#">
+                  <div className="d-flex">
+                           <div className="message-avatar">
+                           <i class="status-icon status-online"></i>
+                           <img src="https://i.ibb.co/cwVjDGd/user-avatar-small-02.jpg" alt="" />
+                  </div>
+                  <div className="message-by-headline text-center">
+                  <div>
+                  <span className="ms-3">Yesterday</span>
+                  <h5 className="ms-2">Sebastiano Piccio</h5>
+                  </div>
+                  <div  className="message-by">
+                  <p>Hello, I want to talk about my project if you don't mind!</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div> 
+                  
+                  </div>
+                  </a>
+         </li>
+         <li>
+                           <a href="#">
+                  <div className="d-flex">
+                           <div className="message-avatar">
+                           <i class="status-icon status-online"></i>
+                           <img src="https://i.ibb.co/fSgB8YY/user-avatar-placeholder.png" alt="" />
+                  </div>
+                  <div className="message-by-headline text-center">
+                  <div>
+                  <span className="ms-3">2 days ago</span>
+                  <h5 className="ms-2">Marcin Kowalski</h5>
+                  </div>
+                  <div  className="message-by">
+                  <p>Yes, I received payment. Thanks for cooperation!</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div> 
+                  
+                  </div>
+                  </a>
+         </li>
+         <li>
+                           <a href="#">
+                  <div className="d-flex">
+                           <div className="message-avatar">
+                           <i class="status-icon status-online"></i>
+                           <img src="https://i.ibb.co/fSgB8YY/user-avatar-placeholder.png" alt="" />
+                  </div>
+                  <div className="message-by-headline text-center">
+                  <div>
+                  <span className="ms-3">4 hours ago</span>
+                  <h5 className="ms-2">David Peterson</h5>
+                  </div>
+                  <div  className="message-by">
+                  <p>Thanks for reaching out. I'm quite busy right now on many</p>
+                  </div>
+                  </div>
+                  </div>
+                  </a>
+         </li>
+         
+                           </ul>
+                           </div>
+
+                          
+
+                           </div> 
+                  </div> :    <p style={{position: "fixed", right: "20px", bottom: "10px"}}>  <MenuIcon className="MessageIcon"  onClick={() => setIsContall(true)} > </MenuIcon> </p> }
+                  
+
+                  
+
+
+
+
+
+                  <div >
+                   <div className="message-bubble-container">
+                       
+                  <div className="message-inbox-headLine message-action d-flex justify-content-between"> <MenuIcon onClick={() => setIsContall(true)}  style={{cursor: "pointer", marginRight: "10px"}}  />
                     <div className="Header_Text"><p>Sports Club</p></div>
                     <div style={{textAlign: "right"}}> <DoDisturbOnIcon className="Header_Icone" onClick={() => setIsConnect(false)} /> </div>
-                </div>
-           
-                <div className='Chat'>
-                    {
-                        AllMessage.map(msg =>{
-                                return <div style={{marginBottom: "50px"}}>
-
-                                    <div className="Person">
-                                    <PersonIcon style={{color: "#000", display: "inline-block", marginBottom: "3px"}} /><p style={{color: "#000", display: "inline-block"}}>{user?.displayName?.slice(0, 10)} {dateToTime(localDate)} </p> 
-                                    </div>
-                                    <p className='Question'>{msg?.question}
-                                    </p>
+                  </div>
 
 
-                                    <div className="User">
-                                        <img style={{width: "25px", marginBottom: "3px", marginRight: "10px"}} src={logo} alt="" />
-                                       
-                                    <p style={{color: "#000", display: "inline-block"}}>SportClub  {dateToTime(localDate)}</p> 
-                                    </div>
-                                    <div className="Ans">
-                                    
-                                    <p>{msg?.Ans}</p>
-                                    {
-                                        msg?.contact_link && <a href={msg?.contact_link}>{msg?.contact_link}</a>
-                                    }
-                                    </div>
-                                    
-                                </div>
-                        })
-                    }
-                </div>
-                <div className="InputBox">
-            <input placeholder='write a message' onKeyUp={e=>{hendlaMessage(e);setMessageValu(e.target.value)}} type="text" />
-            
-            <SendIcon className="Header_Send" />
-
-            <p style={{color: "#000", textAlign: "center", marginTop: "10px"}}>Place today place tomorrow</p>
+                 <div className="Conversation">
 
 
-            </div>
-        </div>
-        </div>
+                  {
+                        AllMessage?.map(msg =>{
+                                return <div >
+
+
+
+
+                  <div className="message-time-sign mt-3">
+                  <span>28 June, 2019</span>
+                  </div>
+                  <div className="message-bubble">
+                    
+                  <div className="message-bubble-inner flex-row-reverse d-flex">
+                  <div className="message-avatar d-flex justify-content-center align-items-center"> 
+                  <img className="ms-3" src="https://www.vasterad.com/themes/hireo_21/images/user-avatar-small-01.jpg" alt="" />
+                  </div>
+                  <div className="message-text">
+                  <p>{msg?.question}</p>
+                  </div>
+                  </div>
+
+                  
+
+                  <div className="message-bubble-inner d-flex">
+                  <div className="message-avatar d-flex justify-content-center align-items-center"> 
+                  <img className="ms-3" src="https://i.ibb.co/cwVjDGd/user-avatar-small-02.jpg" alt="" />
+                  </div>
+                  <div className="message-text-2">
+                  <p>{msg?.Ans}</p>
+                  </div>
+
+                  
+                  </div>
+
+
+
+                  
+
+                  
+
+                  
+
+                  
+                  
+                 
+
+                  </div>
+                           </div>
+                         })
+                        }
+
+
+
+
+                           
+                           </div>
+                           <div className="message-reply d-flex justify-content-center align-items-center">
+                    <input  onKeyUp={e=>{hendlaMessage(e);setMessageValu(e.target.value)}} placeholder="Your Message" />
+                    <button>Send</button>
+
+
+                  </div>
+                 </div>
+
+
+
+
+                 </div>
+
+                  </div>
+                  </div>
+                  </div>
     );
 };
 

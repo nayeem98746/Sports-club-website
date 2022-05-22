@@ -48,6 +48,8 @@ import Profile from "./Pages/Profile/Profile";
 import DaashboardHome from "./Pages/Dashboard/Dashboardtwo/DaashboardHome";
 
 
+
+
 function App() {
 
   
@@ -68,6 +70,7 @@ function App() {
             <Route path="/volleyBall" element={<VolleyBallHome />} />
 
             <Route path="/home" element={<Home />} />
+           
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
