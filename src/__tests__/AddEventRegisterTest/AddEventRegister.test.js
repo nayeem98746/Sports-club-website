@@ -1,5 +1,4 @@
-import { fireEvent, render, screen, waitForElement } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
+import { render, screen } from '@testing-library/react';
 import AddEventRegister from "../../Pages/Dashboard/AddEventRegister/AddEventRegister";
 
 
@@ -22,7 +21,8 @@ describe("AddEventRegister",()=>{
         const eventBook = screen.getByTestId(/book-loading/i);
         expect(eventBook).toBeInTheDocument()
     });
-
+    
+    /*
     // 2: scenario // (useEffect with fetch)
     it("It should call eventRegister endpoint to get all data", async ()=>{
         const fakeResponse = [
@@ -73,7 +73,6 @@ describe("AddEventRegister",()=>{
         (global).fetch.mockRestore()
         window.alert.mockRestore()
     });
-
     // 4: scenario
     it("Should be aproved a booking from the list",async()=>{
         const fakeResponse = [
@@ -112,7 +111,7 @@ describe("AddEventRegister",()=>{
         //    expect(aprElement).not.toBeInTheDocument();
         //    expect(aprElement).not.toHaveTextContent(/approve/i);
         
-        
     });
+    */
 })
 
