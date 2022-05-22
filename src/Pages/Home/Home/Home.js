@@ -14,74 +14,80 @@ import Statistics from "../Statistics/Statistics";
 import Travel from "../Travel/Travel";
 import Video from "../Video/Video";
 import WorkHome from "../WorkHome/WorkHome";
-import MessageIcon from '@mui/icons-material/Message';
-import './Home.css';
+import MessageIcon from "@mui/icons-material/Message";
+import "./Home.css";
 
 const { io } = require("socket.io-client");
 
-
-
-
 const Home = () => {
-
   const [isConnect, setIsConnect] = useState(true);
 
-  const [messageValu, setMessageValu] = useState('');
-  
-  const [ansMessage,setAnsMessage] = useState([]);
-  const [AllMessage,setAllMessage] = useState([]);
+  const [messageValu, setMessageValu] = useState("");
 
-   console.log(AllMessage, "data");
+  const [ansMessage, setAnsMessage] = useState({});
+  const [AllMessage, setAllMessage] = useState([]);
 
-
-
+  //  console.log(AllMessage, "data");
 
   // const [id, setId] = useState(userId);
 
- const socketRef = useRef();
+  const socketRef = useRef();
 
-  useEffect( () => {
+  useEffect(() => {
     socketRef.current = io("https://blooming-thicket-66783.herokuapp.com");
-    socketRef.current.on("chatMessage", (data)=>{
-      console.log(data);
+    // socketRef.current = io("http://localhost:7000");
+    socketRef.current.on("chatMessage", (data) => {
+      // console.log(data);
     });
-  } ,[])
+  }, []);
 
-  useEffect( () => {
+  useEffect(() => {
     socketRef.current = io("https://blooming-thicket-66783.herokuapp.com");
-    socketRef.current.on("getMessage", (data)=>{
-      setAnsMessage(data.ans);
-      
+    // socketRef.current = io("http://localhost:7000");
+    socketRef.current.on("getMessage", (data) => {
+      setAnsMessage(data);
+      // console.log(data);
     });
-  } ,[])
-  
-  useEffect(()=>{
-    
-    const tempMsg = [...AllMessage,ansMessage];
-    
-      setAllMessage(tempMsg);
-  },[ansMessage])
+  }, []);
 
+  useEffect(() => {
+    const tempMsg = [...AllMessage, ansMessage].filter(item => item.user_id);
 
+    setAllMessage(tempMsg);
+  }, [ansMessage.ans,ansMessage.question]);
 
   const hendlaMessage = (e) => {
-            if(e.target.value){
-              if(e.keyCode === 13){
-                socketRef.current.emit("chatMessage",{message: messageValu})
-                e.target.value = "";
-              }
-
-            }else{
-              alert("type Something")
-            }
-  }
-
+    if (e.target.value) {
+      if (e.keyCode === 13) {
+        socketRef.current.emit("chatMessage", { message: messageValu });
+        setAnsMessage({ user_id: "self", question: e.target.value });
+        e.target.value = "";
+      }
+    } else {
+      alert("type Something");
+    }
+  };
 
   return (
     <div>
-      
-     {isConnect ? <Message hendlaMessage={hendlaMessage} AllMessage={AllMessage} setIsConnect={setIsConnect} setMessageValu={setMessageValu} /> :   <p style={{position: "fixed", right: "20px", bottom: "10px"}}>  <MessageIcon className="MessageIcon"  onClick={() => setIsConnect(true)} > </MessageIcon> </p> }
-
+      {isConnect ? (
+        <Message
+          hendlaMessage={hendlaMessage}
+          AllMessage={AllMessage}
+          setIsConnect={setIsConnect}
+          setMessageValu={setMessageValu}
+        />
+      ) : (
+        <p style={{ position: "fixed", right: "20px", bottom: "10px" }}>
+          {" "}
+          <MessageIcon
+            className="MessageIcon"
+            onClick={() => setIsConnect(true)}
+          >
+            {" "}
+          </MessageIcon>{" "}
+        </p>
+      )}
 
       <Navigation />
       <Banner />
@@ -89,7 +95,7 @@ const Home = () => {
       <WorkHome />
       <Statistics />
       <Nextmatch />
-      <ControledSlider />      
+      <ControledSlider />
       <NewsPoint />
       <Video />
       <Products />
@@ -97,8 +103,6 @@ const Home = () => {
       <Fans />
       <CountSlider />
       <Footer />
-
-      
     </div>
   );
 };

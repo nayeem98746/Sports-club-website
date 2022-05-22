@@ -1,29 +1,36 @@
-import React from 'react';
-import MenuIcon from '@mui/icons-material/Menu';
-import DoDisturbOnIcon from '@mui/icons-material/DoDisturbOn';
-import LinearScaleIcon from '@mui/icons-material/LinearScale';
-import PersonIcon from '@mui/icons-material/Person';
-import SendIcon from '@mui/icons-material/Send';
+import React, { useState } from "react";
+import MenuIcon from "@mui/icons-material/Menu";
+import DoDisturbOnIcon from "@mui/icons-material/DoDisturbOn";
+import useAuth from "../../../Hook/UseAuth";
+import PersonIcon from "@mui/icons-material/Person";
+import logo from "../../../Images/Chat/sports.png";
+import SendIcon from "@mui/icons-material/Send";
+
+
 import "./Message.css";
-import useAuth from '../../../Hook/UseAuth';
-import logo from '../../../Images/Chat/sports.png';
 
+const Message = ({
+  setIsConnect,
+  hendlaMessage,
+  AllMessage,
+  setMessageValu,
+}) => {
+  const [isContall, setIsContall] = useState(true);
 
-const Message = ({setIsConnect,hendlaMessage, AllMessage,setMessageValu}) => {
+    console.log(AllMessage);
 
-    //   console.log(ansMessage);
+  const { user } = useAuth();
 
-    const {user} = useAuth();
+  const dateToTime = (date) =>
+    date.toLocaleString("en-US", {
+      hour: "numeric",
+      minute: "numeric",
+    });
 
-    const dateToTime = date => date.toLocaleString('en-US', {
-        hour: 'numeric',
-        minute: 'numeric'
-      });
-      
-      const dateString = new Date().getTime();      
-      const localDate = new Date(dateString); 
-      console.log(`(${dateToTime(localDate)} Your Time)`);
-      console.log(dateString);
+  const dateString = new Date().getTime();
+  const localDate = new Date(dateString);
+  // console.log(`(${dateToTime(localDate)} Your Time)`);
+  // console.log(dateString);
 
     return (
         <div  className="Message">
@@ -39,26 +46,30 @@ const Message = ({setIsConnect,hendlaMessage, AllMessage,setMessageValu}) => {
                     {
                         AllMessage.map(msg =>{
                                 return <div style={{marginBottom: "50px"}}>
+                                      {msg?.question && 
 
                                     <div className="Person">
                                     <PersonIcon style={{color: "#000", display: "inline-block", marginBottom: "3px"}} /><p style={{color: "#000", display: "inline-block"}}>{user?.displayName?.slice(0, 10)} {dateToTime(localDate)} </p> 
-                                    </div>
                                     <p className='Question'>{msg?.question}
                                     </p>
+                                    </div> }
 
+                                    
+                                    
 
+                                    {msg?.ans && 
                                     <div className="User">
                                         <img style={{width: "25px", marginBottom: "3px", marginRight: "10px"}} src={logo} alt="" />
                                        
                                     <p style={{color: "#000", display: "inline-block"}}>SportClub  {dateToTime(localDate)}</p> 
-                                    </div>
                                     <div className="Ans">
                                     
-                                    <p>{msg?.Ans}</p>
-                                    {
-                                        msg?.contact_link && <a href={msg?.contact_link}>{msg?.contact_link}</a>
-                                    }
+                                    <p>{msg?.ans}</p>
+                                  
                                     </div>
+                                    </div>
+                        }
+                                    
                                     
                                 </div>
                         })
