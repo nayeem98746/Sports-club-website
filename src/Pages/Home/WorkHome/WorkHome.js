@@ -23,6 +23,7 @@ const WorkHome = () => {
 		max: 25,
 		speed: 10
 	});
+    // 
     return (
         <Container>
         <div className='WorkHome'>
